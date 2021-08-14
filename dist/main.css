@@ -7,6 +7,15 @@ body {
   background-repeat: repeat;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background: tan;
+}
+
 .grid {
   width: 600px;
   height: 600px;

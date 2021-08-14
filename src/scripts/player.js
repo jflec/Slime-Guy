@@ -1,5 +1,8 @@
 // Add score system.
 // Add starting platform.
+// Add WASD controls.
+// Add flying enemies.
+// Add shooting feature.
 
 import {platforms} from "./platform.js"
 
