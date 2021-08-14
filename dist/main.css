@@ -19,13 +19,13 @@ body {
 .slime {
   width: 40px;
   height: 40px;
-  background-color: red;
+  background-color: white;
   position: absolute;
 }
 
 .platform {
   width: 85px;
   height: 15px;
-  background-color: green;
+  background-color: red;
   position: absolute;
 }
