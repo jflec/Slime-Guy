@@ -2,3 +2,30 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 
+body {
+  background-image: url("../src/assets/html_background.png");
+  background-repeat: repeat;
+}
+
+.grid {
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+}
+
+.slime {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  position: absolute;
+}
+
+.platform {
+  width: 85px;
+  height: 15px;
+  background-color: green;
+  position: absolute;
+}
