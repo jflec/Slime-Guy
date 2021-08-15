@@ -3,8 +3,10 @@
 // Add WASD controls.
 // Add flying enemies.
 // Add shooting feature.
+// Potentially have background that scales with player Y.
 
 import {platforms} from "./platform.js"
+import {slimeSoundPlay} from "./sound.js"
 
 const slime = document.createElement('div')
 
@@ -35,7 +37,7 @@ export function slimeJump() {
     clearInterval(downTimerId)
     isJumping = true;
     upTimerId = setInterval(function() {
-        slimeBottomSpace += 2;
+        slimeBottomSpace += 3;
         slime.style.bottom = slimeBottomSpace + 'px';
         if (slimeBottomSpace > startPoint + 175) {
             slimeFall();
@@ -47,7 +49,7 @@ function slimeFall() {
     clearInterval(upTimerId)
     isJumping = false;
     downTimerId = setInterval(function() {
-        slimeBottomSpace -= 1.5;
+        slimeBottomSpace -= 2;
         slime.style.bottom = slimeBottomSpace + 'px';
         if (slimeBottomSpace <= 0 ) {
             isPlayerDead = true;
@@ -63,6 +65,7 @@ function slimeFall() {
               !isJumping
               ) {
                 startPoint = slimeBottomSpace;
+                slimeSoundPlay();
                 slimeJump();
                 isJumping = true;
               }
@@ -114,7 +117,7 @@ function moveRight() {
     }
     isGoingRight = true
     rightTimerId = setInterval(function () {
-      if (slimeLeftSpace <= 538.5) {
+      if (slimeLeftSpace <= 560) {
         slimeLeftSpace += 2;
         slime.style.left = slimeLeftSpace + 'px'
       } else {

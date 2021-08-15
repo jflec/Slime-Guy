@@ -19,7 +19,7 @@ header {
 .grid {
   width: 600px;
   height: 600px;
-  background-color: black;
+  background-color: lightblue;
   position: relative;
   display: flex;
   margin: 0 auto;
@@ -28,13 +28,20 @@ header {
 .slime {
   width: 40px;
   height: 40px;
-  background-color: white;
+  background-color: green;
   position: absolute;
 }
 
 .platform {
   width: 85px;
   height: 15px;
-  background-color: red;
+  background-image: url("../src/assets/platform.png");
+  position: absolute;
+}
+
+.landingDust {
+  width:85px;
+  height:15px;
+  background: url("../src//assets/landing.gif");
   position: absolute;
 }

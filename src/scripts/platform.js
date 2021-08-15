@@ -7,7 +7,7 @@ export let platforms = [];
 class Platform {
     constructor(grid, newPlatBottom) {
         this.bottom = newPlatBottom;
-        this.left = Math.random() * 315;
+        this.left = Math.random() * 500;
         this.visual = document.createElement('div');
 
         const visual = this.visual;
@@ -29,7 +29,7 @@ export function createPlatforms(grid) {
 }
 
 export function movePlatforms(grid) {
-    if (slimeBottomSpace > 200) {
+    // if (slimeBottomSpace > 200) {
         platforms.forEach(platform => {
             platform.bottom -= 4;
             let visual = platform.visual;
@@ -43,6 +43,6 @@ export function movePlatforms(grid) {
                 platforms.push(newPlatform)
             }
         })
-    }
+    // }
 }
 
