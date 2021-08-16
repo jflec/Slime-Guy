@@ -1,7 +1,6 @@
 // Add score system.
-// Add starting platform.
 // Add flying enemies.
-// Add shooting feature.
+// Add shooting feature. 50%
 // Potentially have background that scales with player Y.
 
 import {platforms} from "./platform.js"
@@ -15,9 +14,9 @@ let isGoingRight = false;
 let leftTimerId;
 let rightTimerId;
 
-export let slimeLeftSpace = 50;
+export let slimeLeftSpace = 280;
 export let score = 0;
-export let startPoint = 150;
+export let startPoint = 600;
 export let slimeBottomSpace = startPoint;
 export let upTimerId;
 export let downTimerId;
@@ -35,7 +34,7 @@ export function slimeJump() {
     upTimerId = setInterval(function() {
         slimeBottomSpace += 3;
         slime.style.bottom = slimeBottomSpace + 'px';
-        if (slimeBottomSpace > startPoint + 175) slimeFall();
+        if (slimeBottomSpace > startPoint + 155) slimeFall();
     }, 1)
 }
 
@@ -50,9 +49,9 @@ function slimeFall() {
         platforms.forEach(platform => {
             if (
               (slimeBottomSpace >= platform.bottom) &&
-              (slimeBottomSpace <= (platform.bottom + 15)) &&
-              ((slimeLeftSpace + 60) >= platform.left) && 
-              (slimeLeftSpace <= (platform.left + 85)) &&
+              (slimeBottomSpace <= (platform.bottom + 19)) && // top of platform
+              ((slimeLeftSpace + 40) >= platform.left) && 
+              (slimeLeftSpace <= (platform.left + 100)) && // right side
               !isJumping
               ) {
                 startPoint = slimeBottomSpace;
@@ -121,11 +120,9 @@ export function gameOver(isGameOver) {
         clearInterval(downTimerId);
         clearInterval(leftTimerId);
         clearInterval(rightTimerId);
-        console.log("game is done");
         return true;
         
     } else if (!isGameOver) {
-        console.log("game not done");
         return false;
     }
 }

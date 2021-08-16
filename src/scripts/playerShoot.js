@@ -9,25 +9,26 @@ class Bullet {
         this.visual = document.createElement('div');
         const visual = this.visual;
         visual.classList.add('bullet');
-        visual.style.left = slimeLeftSpace + 'px';
-        visual.style.bottom = slimeBottomSpace + 'px';
+        visual.style.left = slimeLeftSpace + 12 + 'px';
+        visual.style.bottom = slimeBottomSpace + 12 + 'px';
         grid.appendChild(visual);
     }
 }
 
-export function createBullet(grid, event) {
-    console.log("new bullet")
-    let newBullet = new Bullet(grid, event.clientX, event.clientY);
+export function playerShoot(grid, event) {
+    if (event.keyCode === 32) {
+        shootBullet();
+        let newBullet = new Bullet(grid, event.clientX, event.clientY);
     bullets.push(newBullet);
+    } 
 }
 
 export function shootBullet(x, y) {
-    console.log("shoot bullet")
     bullets.forEach(bullet => {
-        bullet.bottom += 1.5;
+        bullet.bottom += 3;
             let visual = bullet.visual;
             visual.style.bottom = bullet.bottom + 'px';
-            if (bullet.bottom <= -0) {
+            if (bullet.bottom >= 600) {
                 let firstbullet = bullets[0].visual;
                 firstbullet.classList.remove('bullet');
                 bullets.shift();

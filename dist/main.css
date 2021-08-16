@@ -27,7 +27,7 @@ header {
 .grid {
   width: 600px;
   height: 600px;
-  background-color: orange;
+  background-color: black;
   position: relative;
   display: flex;
   margin: 0 auto;
@@ -35,29 +35,22 @@ header {
 }
 
 .slime {
-  width: 40px;
-  height: 40px;
-  background-image: url("../src/assets/slime_concept_1.png");
+  width: 50px;
+  height: 50px;
+  background-color: white;
   position: absolute;
 }
 
 .platform {
-  width: 85px;
-  height: 15px;
-  background-image: url("../src/assets/platform.png");
+  width: 116px;
+  height: 20px;
+  background-color: red;
   position: absolute;
 }
 
 .bullet {
-  width: 15px;
-  height: 15px;
-  background-color: black;
-  position: absolute;
-}
-
-.landingDust {
-  width:85px;
-  height:15px;
-  background: url("../src//assets/landing.gif");
+  width: 16px;
+  height: 16px;
+  background-color: white;
   position: absolute;
 }

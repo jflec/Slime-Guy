@@ -1,6 +1,7 @@
 import {score} from "./player.js"
 
 let platformCount = 5;
+let yVelocity = 1;
 
 export let totalScore = score;
 export let platforms = [];
@@ -33,7 +34,7 @@ export function movePlatforms(grid) {
         platform.bottom -= 0.75;
         let visual = platform.visual;
         visual.style.bottom = platform.bottom + 'px';
-        if (platform.bottom <= -0) {
+        if (platform.bottom <= -15) {
 
             let firstPlatform = platforms[0].visual;
             firstPlatform.classList.remove('platform');
