@@ -18,7 +18,6 @@ This project will also include:
 # Technologies
 
   * Javascript
-  * Canvas
   * HTML
   * CSS
 

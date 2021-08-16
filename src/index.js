@@ -1,18 +1,21 @@
-import {createPlayer, slimeJump, playerMovements, stopPlayerMovements, startPoint} from "./scripts/player.js"
+import {createPlayer, slimeJump, playerMovements, stopPlayerMovements, gameOver} from "./scripts/player.js"
 import {createPlatforms, movePlatforms} from "./scripts/platform.js"
-
-let isGameOver = false;
+import {backgroundMusicPlay} from "./scripts/sound.js"
+import {createBullet, shootBullet} from "./scripts/playerShoot.js"
 
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
-    const slime = createPlayer(grid);
 
     function start() {
-        if (!isGameOver) {
+        if (!gameOver()) {
             createPlatforms(grid);
             createPlayer(grid);
-            setInterval(movePlatforms.bind(this, grid), 30);
+            setInterval(movePlatforms.bind(this, grid), 1);
+            setInterval(shootBullet.bind(this, grid), 1);
             slimeJump();
+
+            document.addEventListener('click', createBullet.bind(this, grid))
+            document.addEventListener('click', backgroundMusicPlay)
             document.addEventListener('keydown', playerMovements)
             document.addEventListener('keyup', stopPlayerMovements)
         }

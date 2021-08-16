@@ -7,28 +7,37 @@ body {
   background-repeat: repeat;
 }
 
-.container {
-  width: 80%;
+ .container {
+  width: 40%;
+  height: 120px;
   margin: 0 auto;
 }
 
 header {
   background: tan;
+  margin-bottom: 50px;
+}
+
+.logo {
+  position: absolute;
+  left: 46.1%;
+  top: 2%;
 }
 
 .grid {
   width: 600px;
   height: 600px;
-  background-color: lightblue;
+  background-color: orange;
   position: relative;
   display: flex;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .slime {
   width: 40px;
   height: 40px;
-  background-color: green;
+  background-image: url("../src/assets/slime_concept_1.png");
   position: absolute;
 }
 
@@ -36,6 +45,13 @@ header {
   width: 85px;
   height: 15px;
   background-image: url("../src/assets/platform.png");
+  position: absolute;
+}
+
+.bullet {
+  width: 15px;
+  height: 15px;
+  background-color: black;
   position: absolute;
 }
 

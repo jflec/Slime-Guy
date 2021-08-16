@@ -1,6 +1,5 @@
 // Add score system.
 // Add starting platform.
-// Add WASD controls.
 // Add flying enemies.
 // Add shooting feature.
 // Potentially have background that scales with player Y.
@@ -10,25 +9,22 @@ import {slimeSoundPlay} from "./sound.js"
 
 const slime = document.createElement('div')
 
-let slimeLeftSpace = 50;
-let isGameOver = false;
 let isJumping = false;
 let isGoingLeft = false;
 let isGoingRight = false;
 let leftTimerId;
 let rightTimerId;
-let score = 0;
 
+export let slimeLeftSpace = 50;
+export let score = 0;
 export let startPoint = 150;
-export let isPlayerDead = false;
+export let slimeBottomSpace = startPoint;
 export let upTimerId;
 export let downTimerId;
-export let slimeBottomSpace = startPoint;
 
 export function createPlayer(grid) {
     grid.appendChild(slime);
     slime.classList.add('slime');
-    // slimeLeftSpace = startingPlatform[0].left;
     slime.style.left = slimeLeftSpace + 'px';
     slime.style.bottom = slimeBottomSpace + 'px';
 }
@@ -39,9 +35,7 @@ export function slimeJump() {
     upTimerId = setInterval(function() {
         slimeBottomSpace += 3;
         slime.style.bottom = slimeBottomSpace + 'px';
-        if (slimeBottomSpace > startPoint + 175) {
-            slimeFall();
-        }
+        if (slimeBottomSpace > startPoint + 175) slimeFall();
     }, 1)
 }
 
@@ -51,10 +45,7 @@ function slimeFall() {
     downTimerId = setInterval(function() {
         slimeBottomSpace -= 2;
         slime.style.bottom = slimeBottomSpace + 'px';
-        if (slimeBottomSpace <= 0 ) {
-            isPlayerDead = true;
-            gameOver()
-        }
+        if (slimeBottomSpace <= 0 ) gameOver(true);
 
         platforms.forEach(platform => {
             if (
@@ -70,16 +61,12 @@ function slimeFall() {
                 isJumping = true;
               }
           })
-
     }, 1)
 }
 
 export function playerMovements(event) {
-    if (event.key === "ArrowLeft") {
-        moveLeft();
-    } else if (event.key === "ArrowRight") {
-        moveRight();
-    }
+    if (event.keyCode === 37 || event.keyCode === 65) moveLeft();
+    if (event.keyCode === 39 || event.keyCode === 68) moveRight();
 }
 
 export function stopPlayerMovements(event) {
@@ -88,7 +75,7 @@ export function stopPlayerMovements(event) {
         clearInterval(leftTimerId)
     } else if (event.keyCode === 39 || event.keyCode === 68) {
         isGoingRight = false
-        clearInterval(rightTimerId)
+        clearInterval(rightTimerId);
     }
 }
 
@@ -126,9 +113,19 @@ function moveRight() {
     }, 1)
 }
 
-function gameOver() {
-    isGameOver = true;
-    while (window.firstChild) { window.removeChild(window.firstChild) }
-    clearInterval(upTimerId);
-    clearInterval(downTimerId);
+export function gameOver(isGameOver) {
+    if (isGameOver) {
+        const grid = document.querySelector('.grid');
+        while (grid.firstChild) { grid.removeChild(grid.firstChild) }
+        clearInterval(upTimerId);
+        clearInterval(downTimerId);
+        clearInterval(leftTimerId);
+        clearInterval(rightTimerId);
+        console.log("game is done");
+        return true;
+        
+    } else if (!isGameOver) {
+        console.log("game not done");
+        return false;
+    }
 }

@@ -1,7 +1,8 @@
-import {slimeBottomSpace} from "./player.js";
+import {score} from "./player.js"
 
 let platformCount = 5;
 
+export let totalScore = score;
 export let platforms = [];
 
 class Platform {
@@ -9,7 +10,6 @@ class Platform {
         this.bottom = newPlatBottom;
         this.left = Math.random() * 500;
         this.visual = document.createElement('div');
-
         const visual = this.visual;
         visual.classList.add('platform');
         visual.style.left = this.left + 'px';
@@ -23,26 +23,25 @@ export function createPlatforms(grid) {
         let platformGap = 600 / platformCount;
         let newPlatBottom = 100 + i * platformGap;
         let newPlatform = new Platform(grid, newPlatBottom);
+
         platforms.push(newPlatform);
     }
-    
 }
 
 export function movePlatforms(grid) {
-    // if (slimeBottomSpace > 200) {
-        platforms.forEach(platform => {
-            platform.bottom -= 4;
-            let visual = platform.visual;
-            visual.style.bottom = platform.bottom + 'px';
+    platforms.forEach(platform => {
+        platform.bottom -= 0.75;
+        let visual = platform.visual;
+        visual.style.bottom = platform.bottom + 'px';
+        if (platform.bottom <= -0) {
 
-            if (platform.bottom < 10) {
-                let firstPlatform = platforms[0].visual;
-                firstPlatform.classList.remove('platform');
-                platforms.shift();
-                let newPlatform = new Platform(grid, 600)
-                platforms.push(newPlatform)
-            }
-        })
-    // }
+            let firstPlatform = platforms[0].visual;
+            firstPlatform.classList.remove('platform');
+            platforms.shift();
+            totalScore++;
+            let newPlatform = new Platform(grid, 600)
+            platforms.push(newPlatform)
+        }
+    })
 }
 
