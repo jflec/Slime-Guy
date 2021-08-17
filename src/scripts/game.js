@@ -1,14 +1,15 @@
 import {createPlayer, slimeJump, playerMovements, stopPlayerMovements, upTimerId, downTimerId, leftTimerId, rightTimerId} from "./player.js"
-import {createPlatforms, movePlatforms} from "./platform.js"
+import {createPlatforms, movePlatforms, score} from "./platform.js"
 import {backgroundMusicPlay} from "./sound.js"
 import {playerShoot, shootBullet} from "./playerShoot.js"
 
 export let gameOver = false;
+export let gamePaused = false;
 
 export function start(grid) {
-        console.log("running")
+    if (!gamePaused) {
         createPlatforms();
-        setTimeout(function() { createPlayer(); }, 250)
+        setTimeout(function() { createPlayer(); }, 300)
         setInterval(movePlatforms, 1);
         setInterval(shootBullet, 1);
         slimeJump();
@@ -17,7 +18,9 @@ export function start(grid) {
         document.addEventListener('click', backgroundMusicPlay)
         document.addEventListener('keydown', playerMovements)
         document.addEventListener('keyup', stopPlayerMovements)
- }
+        document.addEventListener('keydown', pauseGame)
+    }
+}
 
 export function endGame(grid) {
     gameOver = true;
@@ -26,7 +29,18 @@ export function endGame(grid) {
     clearInterval(downTimerId);
     clearInterval(leftTimerId);
     clearInterval(rightTimerId);
+    grid.innerHTML = `Your final score was: ${score}`
 
+}
+
+function pauseGame(event) {
+    if (event.keyCode === 27 && !gamePaused) {
+        
+        gamePaused = true;
+    } else if (event.keyCode === 27 && gamePaused) {
+
+        gamePaused = false;
+    }
 }
 
 

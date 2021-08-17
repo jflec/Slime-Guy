@@ -3,7 +3,7 @@
   \*************************************************************************************************************************************/
 
 body {
-  background-image: url("../src/assets/html_background.png");
+  background-color: rgb(46, 0, 0);
   background-repeat: repeat;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -56,25 +56,27 @@ footer {
 .grid {
   width: 600px;
   height: 600px;
-  background-color: rgb(65, 65, 65);
+  background-image: url("../src/assets/bbb.png");
   position: relative;
   margin-right: 0 auto;
   overflow: hidden;
   z-index: 1;
   border: 10px solid #292929;
+  font-size: 50px;
+  text-align: center;
 }
 
 .slime {
   width: 50px;
   height: 50px;
-  background-color: white;
+  background-image: url("../src/assets/New Piskel (3).gif");
   position: absolute;
 }
 
 .platform {
   width: 116px;
-  height: 20px;
-  background-color: red;
+  height: 16px;
+  background-image: url("../src/assets/platform.gif");
   position: absolute;
 }
 

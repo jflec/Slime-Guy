@@ -1,4 +1,4 @@
-import {gameOver} from "./game.js"
+import {gameOver, gamePaused} from "./game.js"
 import {isJumping, isFalling} from "./player.js"
 
 let platformCount = 5;
@@ -16,6 +16,7 @@ class Platform {
         visual.style.left = this.left + 'px';
         visual.style.bottom = this.bottom + 'px';
         grid.appendChild(visual);
+
     }
 }
 
@@ -31,26 +32,35 @@ export function createPlatforms() {
 
 export function movePlatforms() {
     const grid = document.querySelector('.grid');
-    platforms.forEach(platform => {
-        if (isJumping) {
-            platform.bottom -= 3.5;
-        } else if (isFalling) {
-            platform.bottom += 1;
-        }
-        let visual = platform.visual;
-        visual.style.bottom = platform.bottom + 'px';
-        if (!gameOver) {
-            if (platform.bottom <= -15) {
-                score += 1;
-                let firstPlatform = platforms[0].visual;
-                console.log(platforms[0].visual)
-                firstPlatform.classList.remove('platform');
-                platforms.shift();
-                let newPlatform = new Platform(grid, 600)
-                platforms.push(newPlatform)
+    if (!gamePaused) {
+        platforms.forEach(platform => {
+            if (isJumping) {
+                platform.bottom -= 3.5;
+            } else if (isFalling) {
+                platform.bottom += 1;
             }
-        }
-    })
+            let visual = platform.visual;
+            visual.style.bottom = platform.bottom + 'px';
+            if (!gameOver) {
+               
+                    
+                    if (platform.bottom <= -50) {
+                        let firstPlatform = platforms[0].visual;
+                        firstPlatform.classList.remove('platform');
+                        platforms.shift();
+    
+                        score += 1;
+    
+                        let newPlatform = new Platform(grid, 600)
+                        platforms.push(newPlatform)
+    
+                    }
+                    
+                
+            }
+        })
+    }
+    
 }
 
 export function grabScore() {
