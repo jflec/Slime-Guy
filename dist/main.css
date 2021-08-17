@@ -3,9 +3,8 @@
   \*************************************************************************************************************************************/
 
 body {
-  background-color: rgb(46, 0, 0);
-  background-repeat: repeat;
-  font-family: 'Josefin Sans', sans-serif;
+  background-color: rgb(141, 49, 49);
+  font-family: 'Lato', sans-serif;
 }
 
 header {
@@ -13,16 +12,17 @@ header {
 }
 
 footer {
+  box-shadow: 20px 20px 40px 20px rgba(255, 0, 0, 0.733);
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: white;
   color: #292929;
-  border-top: 8px solid #292929;
 }
 
 .footerlist {
+
   float: right;
   display: flex;
   list-style: none;
@@ -33,15 +33,12 @@ footer {
   margin-left: 35px;
 }
 
-.desc {
+/* .desc {
   background-color: rgb(65, 65, 65);
-  border: 10px solid #292929;
   width: 300px;
   height: 600px;
-  margin-left: 295px;
-  margin-right: 20px;
   float: left;
-}
+} */
 
 .github {
   width: 45px;
@@ -54,22 +51,23 @@ footer {
 }
 
 .grid {
+  box-shadow: 10px 10px 25px 5px rgb(0, 0, 0);
   width: 600px;
   height: 600px;
-  background-image: url("../src/assets/bbb.png");
+  background-image: url("../src/assets/background.png");
   position: relative;
-  margin-right: 0 auto;
+  margin: 0 auto;
   overflow: hidden;
   z-index: 1;
-  border: 10px solid #292929;
   font-size: 50px;
   text-align: center;
+  color: white;
 }
 
 .slime {
   width: 50px;
   height: 50px;
-  background-image: url("../src/assets/New Piskel (3).gif");
+  background-image: url("../src/assets/slime_guy.png");
   position: absolute;
 }
 

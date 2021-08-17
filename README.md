@@ -2,7 +2,7 @@
 
 # Background
 
-Slime Guy throws the user straight into slime action. After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy will Slime Die.
+Slime Guy throws the user straight into slime action. After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die.
 
 # Functionality
 

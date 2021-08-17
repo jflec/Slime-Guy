@@ -1,4 +1,4 @@
-let muted = true;
+let muted = false;
 
 // Importing background music
 
