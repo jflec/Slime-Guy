@@ -1,28 +1,29 @@
-// Add score system.
 // Add flying enemies.
 // Add shooting feature. 50%
-// Potentially have background that scales with player Y.
 
+import {endGame} from "./game.js";
 import {platforms} from "./platform.js"
 import {slimeSoundPlay} from "./sound.js"
 
 const slime = document.createElement('div')
 
-let isJumping = false;
+
 let isGoingLeft = false;
 let isGoingRight = false;
-let leftTimerId;
-let rightTimerId;
 
+export let isJumping = false;
+export let isFalling = true;
 export let slimeLeftSpace = 280;
-export let score = 0;
+export let gameOver = false;
 export let startPoint = 600;
 export let slimeBottomSpace = startPoint;
+export let leftTimerId;
+export let rightTimerId;
 export let upTimerId;
 export let downTimerId;
 
-export function createPlayer(grid) {
-    grid.appendChild(slime);
+export function createPlayer() {
+    document.querySelector('.grid').appendChild(slime);
     slime.classList.add('slime');
     slime.style.left = slimeLeftSpace + 'px';
     slime.style.bottom = slimeBottomSpace + 'px';
@@ -31,8 +32,9 @@ export function createPlayer(grid) {
 export function slimeJump() {
     clearInterval(downTimerId)
     isJumping = true;
+    isFalling = false;
     upTimerId = setInterval(function() {
-        slimeBottomSpace += 3;
+        slimeBottomSpace += 2;
         slime.style.bottom = slimeBottomSpace + 'px';
         if (slimeBottomSpace > startPoint + 155) slimeFall();
     }, 1)
@@ -41,10 +43,14 @@ export function slimeJump() {
 function slimeFall() {
     clearInterval(upTimerId)
     isJumping = false;
+    isFalling = true;
     downTimerId = setInterval(function() {
-        slimeBottomSpace -= 2;
+        slimeBottomSpace -= 3;
         slime.style.bottom = slimeBottomSpace + 'px';
-        if (slimeBottomSpace <= 0 ) gameOver(true);
+
+        if (slimeBottomSpace <= 0 ) {
+            endGame(document.querySelector('.grid'));
+        }
 
         platforms.forEach(platform => {
             if (
@@ -112,17 +118,3 @@ function moveRight() {
     }, 1)
 }
 
-export function gameOver(isGameOver) {
-    if (isGameOver) {
-        const grid = document.querySelector('.grid');
-        while (grid.firstChild) { grid.removeChild(grid.firstChild) }
-        clearInterval(upTimerId);
-        clearInterval(downTimerId);
-        clearInterval(leftTimerId);
-        clearInterval(rightTimerId);
-        return true;
-        
-    } else if (!isGameOver) {
-        return false;
-    }
-}

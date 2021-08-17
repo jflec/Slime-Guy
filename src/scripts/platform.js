@@ -1,9 +1,9 @@
-import {score} from "./player.js"
+import {gameOver} from "./game.js"
+import {isJumping, isFalling} from "./player.js"
 
 let platformCount = 5;
-let yVelocity = 1;
 
-export let totalScore = score;
+export let score = 0;
 export let platforms = [];
 
 class Platform {
@@ -19,30 +19,41 @@ class Platform {
     }
 }
 
-export function createPlatforms(grid) {
+export function createPlatforms() {
+    const grid = document.querySelector('.grid');
     for (let i = 0; i < platformCount; i++) {
         let platformGap = 600 / platformCount;
         let newPlatBottom = 100 + i * platformGap;
         let newPlatform = new Platform(grid, newPlatBottom);
-
-        platforms.push(newPlatform);
+        platforms.push(newPlatform)
     }
 }
 
-export function movePlatforms(grid) {
+export function movePlatforms() {
+    const grid = document.querySelector('.grid');
     platforms.forEach(platform => {
-        platform.bottom -= 0.75;
+        if (isJumping) {
+            platform.bottom -= 3.5;
+        } else if (isFalling) {
+            platform.bottom += 1;
+        }
         let visual = platform.visual;
         visual.style.bottom = platform.bottom + 'px';
-        if (platform.bottom <= -15) {
-
-            let firstPlatform = platforms[0].visual;
-            firstPlatform.classList.remove('platform');
-            platforms.shift();
-            totalScore++;
-            let newPlatform = new Platform(grid, 600)
-            platforms.push(newPlatform)
+        if (!gameOver) {
+            if (platform.bottom <= -15) {
+                score += 1;
+                let firstPlatform = platforms[0].visual;
+                console.log(platforms[0].visual)
+                firstPlatform.classList.remove('platform');
+                platforms.shift();
+                let newPlatform = new Platform(grid, 600)
+                platforms.push(newPlatform)
+            }
         }
     })
+}
+
+export function grabScore() {
+    return score
 }
 

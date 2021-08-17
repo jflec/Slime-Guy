@@ -5,33 +5,63 @@
 body {
   background-image: url("../src/assets/html_background.png");
   background-repeat: repeat;
-}
-
- .container {
-  width: 40%;
-  height: 120px;
-  margin: 0 auto;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 header {
-  background: tan;
   margin-bottom: 50px;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #292929;
+  border-top: 8px solid #292929;
+}
+
+.footerlist {
+  float: right;
+  display: flex;
+  list-style: none;
+  margin-right: 600px;
+}
+
+.footerlist li {
+  margin-left: 35px;
+}
+
+.desc {
+  background-color: rgb(65, 65, 65);
+  border: 10px solid #292929;
+  width: 300px;
+  height: 600px;
+  margin-left: 295px;
+  margin-right: 20px;
+  float: left;
+}
+
+.github {
+  width: 45px;
+  height: 45px;
+}
+
 .logo {
-  position: absolute;
-  left: 46.1%;
-  top: 2%;
+  position: relative;
+  z-index: 2;
 }
 
 .grid {
   width: 600px;
   height: 600px;
-  background-color: black;
+  background-color: rgb(65, 65, 65);
   position: relative;
-  display: flex;
-  margin: 0 auto;
+  margin-right: 0 auto;
   overflow: hidden;
+  z-index: 1;
+  border: 10px solid #292929;
 }
 
 .slime {
