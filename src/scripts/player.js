@@ -52,30 +52,24 @@ function slimeFall() {
         isFalling = true;
         downTimerId = setInterval(function() {
             if (!gamePaused) {
-
-            
-            slimeBottomSpace -= 2;
-            slime.style.bottom = slimeBottomSpace + 'px';
-
-            if (slimeBottomSpace <= 0 ) {
-                endGame(document.querySelector('.grid'));
+                slimeBottomSpace -= 2;
+                slime.style.bottom = slimeBottomSpace + 'px';
+                if (slimeBottomSpace <= -80 ) { endGame(document.querySelector('.grid')); }
+                platforms.forEach(platform => {
+                    if (
+                    (slimeBottomSpace >= platform.bottom) &&
+                    (slimeBottomSpace <= (platform.bottom + 19)) && // top of platform
+                    ((slimeLeftSpace + 40) >= platform.left) && 
+                    (slimeLeftSpace <= (platform.left + 100)) && // right side
+                    !isJumping
+                    ) {
+                        startPoint = slimeBottomSpace;
+                        slimeSoundPlay();
+                        slimeJump();
+                        isJumping = true;
+                    }
+                })
             }
-
-            platforms.forEach(platform => {
-                if (
-                (slimeBottomSpace >= platform.bottom) &&
-                (slimeBottomSpace <= (platform.bottom + 19)) && // top of platform
-                ((slimeLeftSpace + 40) >= platform.left) && 
-                (slimeLeftSpace <= (platform.left + 100)) && // right side
-                !isJumping
-                ) {
-                    startPoint = slimeBottomSpace;
-                    slimeSoundPlay();
-                    slimeJump();
-                    isJumping = true;
-                }
-            })
-        }
         }, 1)
     
     }
@@ -109,11 +103,11 @@ function moveLeft() {
         }
         isGoingLeft = true
         leftTimerId = setInterval(function () {
-            if (slimeLeftSpace >= 0) {
+            if (slimeLeftSpace >= -60) {
             slimeLeftSpace -= 2;
             slime.style.left = slimeLeftSpace + 'px'
             } else {
-                slimeLeftSpace = 545;
+                slimeLeftSpace = 600;
             }
         }, 1)
     }
@@ -128,11 +122,11 @@ function moveRight() {
         }
         isGoingRight = true
         rightTimerId = setInterval(function () {
-          if (slimeLeftSpace <= 560) {
+          if (slimeLeftSpace <= 610) {
             slimeLeftSpace += 2;
             slime.style.left = slimeLeftSpace + 'px'
           } else {
-            slimeLeftSpace = -4;
+            slimeLeftSpace = -60;
         }
         }, 1)
     }

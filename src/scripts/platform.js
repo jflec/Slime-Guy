@@ -23,7 +23,7 @@ class Platform {
 export function createPlatforms() {
     const grid = document.querySelector('.grid');
     for (let i = 0; i < platformCount; i++) {
-        let platformGap = 600 / platformCount;
+        let platformGap = 750 / platformCount;
         let newPlatBottom = 100 + i * platformGap;
         let newPlatform = new Platform(grid, newPlatBottom);
         platforms.push(newPlatform)
@@ -51,7 +51,7 @@ export function movePlatforms() {
     
                         score += 1;
     
-                        let newPlatform = new Platform(grid, 600)
+                        let newPlatform = new Platform(grid, 750)
                         platforms.push(newPlatform)
     
                     }

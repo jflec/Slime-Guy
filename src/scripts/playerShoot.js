@@ -28,7 +28,7 @@ export function shootBullet(x, y) {
         bullet.bottom += 3;
         let visual = bullet.visual;
         visual.style.bottom = bullet.bottom + 'px';
-        if (bullet.bottom >= 600) {
+        if (bullet.bottom >= 750) {
             let firstbullet = bullets[0].visual;
             firstbullet.classList.remove('bullet');
             bullets.shift();

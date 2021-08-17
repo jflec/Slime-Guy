@@ -1,9 +1,18 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
 
 body {
-  background-color: rgb(141, 49, 49);
+  background-color: rgb(105, 105, 105);
   font-family: 'Lato', sans-serif;
 }
 
@@ -12,7 +21,7 @@ header {
 }
 
 footer {
-  box-shadow: 20px 20px 40px 20px rgba(255, 0, 0, 0.733);
+  box-shadow: 20px 20px 40px 20px rgba(0, 0, 0, 0.733);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -32,30 +41,18 @@ footer {
 .footerlist li {
   margin-left: 35px;
 }
-
-/* .desc {
-  background-color: rgb(65, 65, 65);
-  width: 300px;
-  height: 600px;
-  float: left;
-} */
-
 .github {
   width: 45px;
   height: 45px;
 }
 
-.logo {
-  position: relative;
-  z-index: 2;
-}
-
-.grid {
-  box-shadow: 10px 10px 25px 5px rgb(0, 0, 0);
+.grid { 
+  box-shadow: 8px 8px 10px rgb(0, 0, 0);
   width: 600px;
-  height: 600px;
-  background-image: url("../src/assets/background.png");
+  height: 750px;
+  background-color: rgb(0, 0, 0);
   position: relative;
+  border-radius: 30px;
   margin: 0 auto;
   overflow: hidden;
   z-index: 1;
@@ -65,10 +62,15 @@ footer {
 }
 
 .slime {
+  z-index: 3;
   width: 50px;
   height: 50px;
   background-image: url("../src/assets/slime_guy.png");
   position: absolute;
+  box-shadow:
+  0 0 10px 1px rgb(180, 255, 173),
+  0 0 60px 2px rgb(16, 196, 0), 
+  0 0 120px 3px rgb(0, 255, 21); 
 }
 
 .platform {
@@ -76,9 +78,17 @@ footer {
   height: 16px;
   background-image: url("../src/assets/platform.gif");
   position: absolute;
+  box-shadow:
+  0 0 10px 1px rgb(255, 0, 0);
 }
 
 .bullet {
+  z-index: 2;
+  animation: rotation .01s infinite linear;
+  box-shadow:
+  0 0 10px 1px #fff,
+  0 0 20px 2px rgb(118, 255, 105), 
+  0 0 30px 3px rgb(0, 173, 14);
   width: 16px;
   height: 16px;
   background-color: white;
