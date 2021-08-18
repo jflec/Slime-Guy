@@ -1,10 +1,17 @@
-import {createPlayer, slimeJump, playerMovements, stopPlayerMovements, upTimerId, downTimerId, leftTimerId, rightTimerId} from "./player.js"
+// Add start menu
+// Add pause menu
+// Add death screen
+// BONUS: add enemy, add stages
+
+import {createPlayer, slimeJump, playerMovements, stopPlayerMovements,
+        upTimerId, downTimerId, leftTimerId, rightTimerId} from "./player.js"
 import {createPlatforms, movePlatforms, score} from "./platform.js"
-import {backgroundMusicPlay} from "./sound.js"
 import {playerShoot, shootBullet} from "./playerShoot.js"
 
 export let gameOver   = false;
 export let gamePaused = false;
+
+// In charge of starting the game, calls necessary functions needed for building and rendering.
 
 export function start(grid) {
     if (!gamePaused) {
@@ -15,12 +22,21 @@ export function start(grid) {
         slimeJump();
 
         document.addEventListener('keydown', playerShoot.bind(this, grid))
-        document.addEventListener('click', backgroundMusicPlay)
         document.addEventListener('keydown', playerMovements)
-        document.addEventListener('keyup', stopPlayerMovements)
         document.addEventListener('keydown', pauseGame)
+        document.addEventListener('keydown', restart)
+        document.addEventListener('keyup', stopPlayerMovements)
     }
 }
+
+// Pauses game by setting exported variable to desired game state
+
+function pauseGame(event) {
+    if (event.keyCode === 27 && !gamePaused) gamePaused = true;
+    else if (event.keyCode === 27 && gamePaused) gamePaused = false;
+}
+
+// Ends game by clearing the grid and TimerIds
 
 export function endGame(grid) {
     gameOver = true;
@@ -32,11 +48,11 @@ export function endGame(grid) {
     // document.getElementById("ending").style.display = "block";
 }
 
-function pauseGame(event) {
-    if (event.keyCode === 27 && !gamePaused) {
-        gamePaused = true;
-    } else if (event.keyCode === 27 && gamePaused) {
-        gamePaused = false;
+// Restarts game via reloading page
+
+function restart(event) {
+    if (event.keyCode === 82) {
+        location.reload()
     }
 }
 

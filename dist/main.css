@@ -49,7 +49,7 @@ footer {
   z-index: 1;
   width: 600px;
   height: 750px;
-  box-shadow: 8px 8px 10px rgb(0, 0, 0);
+  box-shadow: 8px 8px 10px rgb(43, 43, 43);
   background-color: rgb(0, 0, 0);
   position: relative;
   border-radius: 30px;
@@ -94,6 +94,55 @@ footer {
   position: absolute;
 }
 
-.ending {
-  display: none;
+.menu {
+  z-index: 3;
+  margin: 0 auto;
+  position: absolute;
+  top: 20%;
+  width: auto;
+  height: auto;
+  display: block;
 }
+
+.menu-list {
+
+  list-style: none;
+}
+
+.slider {
+  margin-top: 30px;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #272727; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 50px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background-image: url("../src/assets/slime_guy.png");
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 50px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background-image: url("../src/assets/slime_guy.png"); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+

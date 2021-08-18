@@ -1,12 +1,8 @@
-// Add flying enemies.
-// Add shooting feature. 50%
-
 import {endGame, gamePaused} from "./game.js";
 import {platforms} from "./platform.js"
 import {slimeSoundPlay} from "./sound.js"
 
 const slime = document.createElement('div')
-
 
 let isGoingLeft             = false;
 let isGoingRight            = false;
@@ -22,12 +18,16 @@ export let rightTimerId;
 export let upTimerId;
 export let downTimerId;
 
+// Create 'Slime' and add to the grid.
+
 export function createPlayer() {
     document.querySelector('.grid').appendChild(slime);
     slime.classList.add('slime');
     slime.style.left = slimeLeftSpace + 'px';
     slime.style.bottom = slimeBottomSpace + 'px';
 }
+
+// In charge of adding to the player's Y value and calling slimeFall()
 
 export function slimeJump() {
     if (!gamePaused) {
@@ -36,14 +36,15 @@ export function slimeJump() {
         isFalling = false;
         upTimerId = setInterval(function() {
             if (!gamePaused) {
-            slimeBottomSpace += 1;
-            slime.style.bottom = slimeBottomSpace + 'px';
-            if (slimeBottomSpace > startPoint + 100) slimeFall();
+                slimeBottomSpace += 1;
+                slime.style.bottom = slimeBottomSpace + 'px';
+                if (slimeBottomSpace > startPoint + 100) slimeFall();
             }
         }, 1)
     }
-    
 }
+
+// In charge of subtracting the player's Y value and calling endGame()
 
 function slimeFall() {
     if (!gamePaused) {
@@ -54,21 +55,27 @@ function slimeFall() {
             if (!gamePaused) {
                 slimeBottomSpace -= 2;
                 slime.style.bottom = slimeBottomSpace + 'px';
-                if (slimeBottomSpace <= -80 ) { endGame(document.querySelector('.grid')); }
-                platforms.forEach(platform => {
-                    if ((slimeBottomSpace >= platform.bottom) && (slimeBottomSpace <= (platform.bottom + 19)) &&
-                    ((slimeLeftSpace + 40) >= platform.left) && (slimeLeftSpace <= (platform.left + 100)) &&
-                    !isJumping) {
-                        startPoint = slimeBottomSpace;
-                        slimeSoundPlay();
-                        slimeJump();
-                        isJumping = true;
-                    }
-                })
+                if (slimeBottomSpace <= -80 ) endGame(document.querySelector('.grid')); 
+                platforms.forEach(platform => { collisionDetect(platform);} )
             }
         }, 1)
     }
 }
+
+// Checks the value of the bottom of the player, if said value returns true it calls slimeJump()
+
+function collisionDetect(platform) {
+    if ((slimeBottomSpace >= platform.bottom) && (slimeBottomSpace <= (platform.bottom + 19)) &&
+    ((slimeLeftSpace + 40) >= platform.left) && (slimeLeftSpace <= (platform.left + 100)) &&
+    !isJumping) {
+        startPoint = slimeBottomSpace;
+        slimeSoundPlay();
+        slimeJump();
+        isJumping = true;
+    }
+}
+
+// Calls moveLeft() or moveRight depending on player input. *Uses keydown*
 
 export function playerMovements(event) {
     if (!gamePaused) {
@@ -76,6 +83,8 @@ export function playerMovements(event) {
         if (event.keyCode === 39 || event.keyCode === 68) moveRight();
     }
 }
+
+// Ceases player movement depending on key release. *Uses keyup*
 
 export function stopPlayerMovements(event) {
     if (event.keyCode === 37 || event.keyCode === 65) {
@@ -86,6 +95,8 @@ export function stopPlayerMovements(event) {
         clearInterval(rightTimerId);
     }
 }
+
+// Decrements player's X value
 
 function moveLeft() {
     if (!gamePaused) {
@@ -99,12 +110,12 @@ function moveLeft() {
             if (slimeLeftSpace >= -60) {
             slimeLeftSpace -= 2;
             slime.style.left = slimeLeftSpace + 'px'
-            } else {
-                slimeLeftSpace = 600;
-            }
+            } else slimeLeftSpace = 600;
         }, 1)
     }
 }
+
+// Increments player's X value
 
 function moveRight() {
     if (!gamePaused) {
@@ -118,11 +129,8 @@ function moveRight() {
             if (slimeLeftSpace <= 610) {
                 slimeLeftSpace += 2;
                 slime.style.left = slimeLeftSpace + 'px'
-            } else {
-                slimeLeftSpace = -60;
-        }
+            } else slimeLeftSpace = -60;
         }, 1)
     }
-   
 }
 

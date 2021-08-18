@@ -1,4 +1,10 @@
 let muted = false;
+let songRunning = false;
+
+// const menu = document.querySelector(".menu")
+// console.log(menu)
+// const menuList = menu.querySelector(".menu-list")
+
 
 // Importing background music
 
@@ -31,16 +37,16 @@ slimeSoundFour.volume  = slimeVolume;
 
 // Pushing slime sounds into an array
 
-let backgroundMusicVolume = 0.1;
+// let backgroundMusicVolume = 1;
 
-backgroundMusicOne.volume   = backgroundMusicVolume;
-backgroundMusicTwo .volume  = backgroundMusicVolume;
-backgroundMusicThree.volume = backgroundMusicVolume;
-backgroundMusicFour.volume  = backgroundMusicVolume;
-backgroundMusicFive.volume  = backgroundMusicVolume;
-backgroundMusicSix.volume   = backgroundMusicVolume;
-backgroundMusicSeven.volume = backgroundMusicVolume;
-backgroundMusicEight.volume = backgroundMusicVolume;
+// backgroundMusicOne.volume   = backgroundMusicVolume;
+// backgroundMusicTwo .volume  = backgroundMusicVolume;
+// backgroundMusicThree.volume = backgroundMusicVolume;
+// backgroundMusicFour.volume  = backgroundMusicVolume;
+// backgroundMusicFive.volume  = backgroundMusicVolume;
+// backgroundMusicSix.volume   = backgroundMusicVolume;
+// backgroundMusicSeven.volume = backgroundMusicVolume;
+// backgroundMusicEight.volume = backgroundMusicVolume;
 
 let slimeSounds = [slimeSoundOne, slimeSoundTwo, slimeSoundThree, slimeSoundFour];
 
@@ -50,10 +56,27 @@ function sample(array) {
     return array[Math.floor ( Math.random() * array.length )]
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById("music");
+
+slider.addEventListener('change', function() {
+    let currentSong = sample(backgroundMusic)
+    backgroundMusicPlay(currentSong)
+    currentSong.volume = this.value / 100;
+    console.log(this.value / 100)
+    })
+})
+
 export function slimeSoundPlay() {
     if (!muted) sample(slimeSounds).play();
 }
 
-export function backgroundMusicPlay() {
-    if (!muted) sample(backgroundMusic).play();
+export function backgroundMusicPlay(currentSong) {
+    if (!songRunning) {
+        songRunning = true;
+        if (!muted) {
+            currentSong.play();
+        }
+    }
+    
 }
