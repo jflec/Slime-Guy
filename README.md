@@ -1,4 +1,4 @@
-![logo](./src/assets/logo_small.png)
+# Slime Guy
 
 # Background
 
