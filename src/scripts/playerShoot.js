@@ -16,7 +16,7 @@ class Bullet {
 }
 
 export function playerShoot(grid, event) {
-    if (event.keyCode === 32) {
+    if (event.keyCode === 13) {
         shootBullet();
         let newBullet = new Bullet(document.querySelector('.grid'), event.clientX, event.clientY);
         bullets.push(newBullet);
@@ -29,8 +29,8 @@ export function shootBullet(x, y) {
         let visual = bullet.visual;
         visual.style.bottom = bullet.bottom + 'px';
         if (bullet.bottom >= 750) {
-            let firstbullet = bullets[0].visual;
-            firstbullet.classList.remove('bullet');
+            let firstBullet = bullets[0].visual;
+            firstBullet.remove();
             bullets.shift();
         }
     })

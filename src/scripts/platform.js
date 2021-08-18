@@ -1,9 +1,9 @@
-import {gameOver, gamePaused} from "./game.js"
+import {gameOver, gamePaused, softPaused} from "./game.js"
 import {isJumping, isFalling} from "./player.js"
 
 let platformCount    = 5;
 
-export let score     = 0;
+export let score     = 1;
 export let platforms = [];
 
 // Sets Platform properties
@@ -37,10 +37,15 @@ export function createPlatforms() {
 
 export function movePlatforms() {
     const grid = document.querySelector('.grid');
-    if (!gamePaused) {
+    if (!gamePaused || softPaused) {
         platforms.forEach(platform => {
             if (isJumping) {
-                platform.bottom -= 3.5;
+                if (softPaused) { 
+                    platform.bottom -= 1.5;
+                } else {
+                    platform.bottom -= 3.5;
+                }
+               
             } else if (isFalling) {
                 platform.bottom += 1;
             }
@@ -54,12 +59,24 @@ export function movePlatforms() {
 // Removes old platforms and creates new platforms that are then pushed to platform array
 
 function updatePlatforms(platform, grid) {
-    if (!gameOver) {
+    if (!gameOver) { 
         if (platform.bottom <= -50) {
+            const scoreText = document.querySelector('.score');
+            const titleText = document.querySelector('.title');
+            const movementText = document.querySelector('.movement');
+            const shootText = document.querySelector('.shoot');
             let firstPlatform = platforms[0].visual;
-            firstPlatform.classList.remove('platform');
+            firstPlatform.remove();
             platforms.shift();
-            score += 1;
+            if (!softPaused ) {
+                score += 1;
+                scoreText.innerHTML = score;
+                titleText.innerHTML = "";
+                movementText.innerHTML = "";
+                shootText.innerHTML = "";
+            }
+            
+            
             let newPlatform = new Platform(grid, 750)
             platforms.push(newPlatform)
 

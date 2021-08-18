@@ -34,7 +34,7 @@ footer {
   float: right;
   display: flex;
   list-style: none;
-  margin-right: 600px;
+  margin-right: 630px;
 }
 
 .footerlist li {
@@ -58,6 +58,7 @@ footer {
   font-size: 50px;
   text-align: center;
   color: white;
+  line-height: 30px;
 }
 
 .slime {
@@ -101,13 +102,45 @@ footer {
   top: 20%;
   width: auto;
   height: auto;
-  display: block;
+  display: none;
 }
 
 .menu-list {
 
   list-style: none;
 }
+
+.title {
+  font-size: 30px;
+}
+
+.shoot {
+  font-size: 30px;
+}
+
+.movement {
+  font-size: 30px;
+}
+
+.oneEnding {
+  margin-top: 300px;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.twoEnding {
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.finalScore {
+  font-size: 30px;
+}
+
+.score {
+  font-size: 60px;
+}
+
 
 .slider {
   margin-top: 30px;

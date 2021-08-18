@@ -55,7 +55,7 @@ function slimeFall() {
             if (!gamePaused) {
                 slimeBottomSpace -= 2;
                 slime.style.bottom = slimeBottomSpace + 'px';
-                if (slimeBottomSpace <= -80 ) endGame(document.querySelector('.grid')); 
+                if (slimeBottomSpace <= -200 ) endGame(document.querySelector('.grid')); 
                 platforms.forEach(platform => { collisionDetect(platform);} )
             }
         }, 1)

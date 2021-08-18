@@ -1,4 +1,4 @@
-let muted = false;
+let muted = true;
 let songRunning = false;
 
 // const menu = document.querySelector(".menu")
@@ -21,21 +21,29 @@ let backgroundMusic = [backgroundMusicOne, backgroundMusicTwo, backgroundMusicTh
                        backgroundMusicFive, backgroundMusicSix, backgroundMusicSeven, backgroundMusicEight];
 
 // Importing slime sounds
-
-let slimeSoundOne   = new Audio("../src/sounds/slime_sounds/slime_sound_0.mp3");
-let slimeSoundTwo   = new Audio("../src/sounds/slime_sounds/slime_sound_1.mp3");
-let slimeSoundThree = new Audio("../src/sounds/slime_sounds/slime_sound_2.mp3");
-let slimeSoundFour  = new Audio("../src/sounds/slime_sounds/slime_sound_3.mp3");
+let slimeSoundOne    = new Audio("../src/sounds/slime_sounds/slime_sound_0.mp3");
+let slimeSoundTwo    = new Audio("../src/sounds/slime_sounds/slime_sound_1.mp3");
+let slimeSoundThree  = new Audio("../src/sounds/slime_sounds/slime_sound_2.mp3");
+let slimeSoundFour   = new Audio("../src/sounds/slime_sounds/slime_sound_3.mp3");
+let slimeSoundFive   = new Audio("../src/sounds/slime_sounds/slime_sound_0.mp3");
+let slimeSoundSix    = new Audio("../src/sounds/slime_sounds/slime_sound_1.mp3");
+let slimeSoundSeven  = new Audio("../src/sounds/slime_sounds/slime_sound_2.mp3");
+let slimeSoundEight  = new Audio("../src/sounds/slime_sounds/slime_sound_3.mp3");
 
 // Adjusting slime sound volumes
-
 let slimeVolume = 0.05;
-slimeSoundOne.volume   = slimeVolume;
-slimeSoundTwo.volume   = slimeVolume;
-slimeSoundThree.volume = slimeVolume;
-slimeSoundFour.volume  = slimeVolume;
+slimeSoundOne.volume    = slimeVolume;
+slimeSoundTwo.volume    = slimeVolume;
+slimeSoundThree.volume  = slimeVolume;
+slimeSoundFour.volume   = slimeVolume;
+slimeSoundFive.volume   = slimeVolume;
+slimeSoundSix.volume    = slimeVolume;
+slimeSoundSeven.volume  = slimeVolume;
+slimeSoundEight.volume  = slimeVolume;
 
 // Pushing slime sounds into an array
+let slimeSounds = [slimeSoundOne, slimeSoundTwo, slimeSoundThree, slimeSoundFour, slimeSoundFour,
+    slimeSoundFive, slimeSoundSix, slimeSoundSeven, slimeSoundEight];
 
 // let backgroundMusicVolume = 1;
 
@@ -48,7 +56,7 @@ slimeSoundFour.volume  = slimeVolume;
 // backgroundMusicSeven.volume = backgroundMusicVolume;
 // backgroundMusicEight.volume = backgroundMusicVolume;
 
-let slimeSounds = [slimeSoundOne, slimeSoundTwo, slimeSoundThree, slimeSoundFour];
+
 
 // Returning random slime sound when called
 
