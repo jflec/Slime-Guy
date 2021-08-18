@@ -3,7 +3,7 @@ import {createPlatforms, movePlatforms, score} from "./platform.js"
 import {backgroundMusicPlay} from "./sound.js"
 import {playerShoot, shootBullet} from "./playerShoot.js"
 
-export let gameOver = false;
+export let gameOver   = false;
 export let gamePaused = false;
 
 export function start(grid) {
@@ -29,16 +29,13 @@ export function endGame(grid) {
     clearInterval(downTimerId);
     clearInterval(leftTimerId);
     clearInterval(rightTimerId);
-    grid.innerHTML = `Your final score was: ${score}`
-
+    // document.getElementById("ending").style.display = "block";
 }
 
 function pauseGame(event) {
     if (event.keyCode === 27 && !gamePaused) {
-        
         gamePaused = true;
     } else if (event.keyCode === 27 && gamePaused) {
-
         gamePaused = false;
     }
 }

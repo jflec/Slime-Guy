@@ -31,7 +31,6 @@ footer {
 }
 
 .footerlist {
-
   float: right;
   display: flex;
   list-style: none;
@@ -47,15 +46,15 @@ footer {
 }
 
 .grid { 
-  box-shadow: 8px 8px 10px rgb(0, 0, 0);
+  z-index: 1;
   width: 600px;
   height: 750px;
+  box-shadow: 8px 8px 10px rgb(0, 0, 0);
   background-color: rgb(0, 0, 0);
   position: relative;
   border-radius: 30px;
   margin: 0 auto;
   overflow: hidden;
-  z-index: 1;
   font-size: 50px;
   text-align: center;
   color: white;
@@ -93,4 +92,8 @@ footer {
   height: 16px;
   background-color: white;
   position: absolute;
+}
+
+.ending {
+  display: none;
 }

@@ -8,14 +8,14 @@ import {slimeSoundPlay} from "./sound.js"
 const slime = document.createElement('div')
 
 
-let isGoingLeft = false;
-let isGoingRight = false;
+let isGoingLeft             = false;
+let isGoingRight            = false;
 
-export let isJumping = false;
-export let isFalling = true;
-export let slimeLeftSpace = 280;
-export let gameOver = false;
-export let startPoint = 200;
+export let isJumping        = false;
+export let isFalling        = true;
+export let slimeLeftSpace   = 280;
+export let gameOver         = false;
+export let startPoint       = 200;
 export let slimeBottomSpace = startPoint;
 export let leftTimerId;
 export let rightTimerId;
@@ -56,13 +56,9 @@ function slimeFall() {
                 slime.style.bottom = slimeBottomSpace + 'px';
                 if (slimeBottomSpace <= -80 ) { endGame(document.querySelector('.grid')); }
                 platforms.forEach(platform => {
-                    if (
-                    (slimeBottomSpace >= platform.bottom) &&
-                    (slimeBottomSpace <= (platform.bottom + 19)) && // top of platform
-                    ((slimeLeftSpace + 40) >= platform.left) && 
-                    (slimeLeftSpace <= (platform.left + 100)) && // right side
-                    !isJumping
-                    ) {
+                    if ((slimeBottomSpace >= platform.bottom) && (slimeBottomSpace <= (platform.bottom + 19)) &&
+                    ((slimeLeftSpace + 40) >= platform.left) && (slimeLeftSpace <= (platform.left + 100)) &&
+                    !isJumping) {
                         startPoint = slimeBottomSpace;
                         slimeSoundPlay();
                         slimeJump();
@@ -71,17 +67,14 @@ function slimeFall() {
                 })
             }
         }, 1)
-    
     }
 }
 
 export function playerMovements(event) {
-   
     if (!gamePaused) {
         if (event.keyCode === 37 || event.keyCode === 65) moveLeft();
         if (event.keyCode === 39 || event.keyCode === 68) moveRight();
     }
- 
 }
 
 export function stopPlayerMovements(event) {
@@ -122,11 +115,11 @@ function moveRight() {
         }
         isGoingRight = true
         rightTimerId = setInterval(function () {
-          if (slimeLeftSpace <= 610) {
-            slimeLeftSpace += 2;
-            slime.style.left = slimeLeftSpace + 'px'
-          } else {
-            slimeLeftSpace = -60;
+            if (slimeLeftSpace <= 610) {
+                slimeLeftSpace += 2;
+                slime.style.left = slimeLeftSpace + 'px'
+            } else {
+                slimeLeftSpace = -60;
         }
         }, 1)
     }

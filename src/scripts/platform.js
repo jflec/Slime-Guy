@@ -1,9 +1,9 @@
 import {gameOver, gamePaused} from "./game.js"
 import {isJumping, isFalling} from "./player.js"
 
-let platformCount = 5;
+let platformCount    = 5;
 
-export let score = 0;
+export let score     = 0;
 export let platforms = [];
 
 class Platform {
@@ -16,7 +16,6 @@ class Platform {
         visual.style.left = this.left + 'px';
         visual.style.bottom = this.bottom + 'px';
         grid.appendChild(visual);
-
     }
 }
 
@@ -42,28 +41,16 @@ export function movePlatforms() {
             let visual = platform.visual;
             visual.style.bottom = platform.bottom + 'px';
             if (!gameOver) {
-               
-                    
-                    if (platform.bottom <= -50) {
-                        let firstPlatform = platforms[0].visual;
-                        firstPlatform.classList.remove('platform');
-                        platforms.shift();
+                if (platform.bottom <= -50) {
+                    let firstPlatform = platforms[0].visual;
+                    firstPlatform.classList.remove('platform');
+                    platforms.shift();
+                    score += 1;
+                    let newPlatform = new Platform(grid, 750)
+                    platforms.push(newPlatform)
     
-                        score += 1;
-    
-                        let newPlatform = new Platform(grid, 750)
-                        platforms.push(newPlatform)
-    
-                    }
-                    
-                
+                }
             }
         })
     }
-    
 }
-
-export function grabScore() {
-    return score
-}
-
