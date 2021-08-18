@@ -17,32 +17,35 @@ body {
 }
 
 header {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 footer {
-  box-shadow: 20px 20px 40px 20px rgba(0, 0, 0, 0.733);
+  box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.733);
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: white;
-  color: #292929;
+  color: #000000;
+  
 }
 
 .footerlist {
   float: right;
   display: flex;
   list-style: none;
-  margin-right: 630px;
+  margin: 0 auto;
+  margin-right: 815px;
 }
 
 .footerlist li {
-  margin-left: 35px;
+  margin-left: 5px;
 }
 .github {
   width: 45px;
   height: 45px;
+  margin-top: 4px;
 }
 
 .grid { 
@@ -71,6 +74,15 @@ footer {
   0 0 10px 1px rgb(180, 255, 173),
   0 0 60px 2px rgb(16, 196, 0), 
   0 0 120px 3px rgb(0, 255, 21); 
+}
+
+.enemy {
+  width: 40px;
+  height: 40px;
+  background-image: url("../src/assets/demon.png");
+  position: absolute;
+  box-shadow:
+  0 0 10px 1px rgb(255, 0, 0);
 }
 
 .platform {
@@ -111,35 +123,37 @@ footer {
 }
 
 .title {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .shoot {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .movement {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .oneEnding {
   margin-top: 300px;
-  font-size: 30px;
+  font-size: 40px;
   vertical-align: middle;
 }
 
 .twoEnding {
-  font-size: 30px;
+  font-size: 40px;
   vertical-align: middle;
 }
 
 .finalScore {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .score {
   font-size: 60px;
 }
+
+
 
 
 .slider {

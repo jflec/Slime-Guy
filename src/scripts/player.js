@@ -81,6 +81,7 @@ export function playerMovements(event) {
     if (!gamePaused) {
         if (event.keyCode === 37 || event.keyCode === 65) moveLeft();
         if (event.keyCode === 39 || event.keyCode === 68) moveRight();
+        
     }
 }
 

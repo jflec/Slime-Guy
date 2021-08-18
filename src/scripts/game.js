@@ -7,6 +7,7 @@ import {createPlayer, slimeJump, playerMovements, stopPlayerMovements,
         upTimerId, downTimerId, leftTimerId, rightTimerId} from "./player.js"
 import {createPlatforms, movePlatforms, score} from "./platform.js"
 import {playerShoot, shootBullet} from "./playerShoot.js"
+import {createEnemys, moveEnemys} from "./enemy.js"
 
 export let gameOver   = false;
 export let gamePaused = false;
@@ -17,12 +18,14 @@ export let softPaused = false;
 export function start(grid) {
     if (!gamePaused) {
         createPlatforms();
+        createEnemys()
         createPlayer()
         setInterval(movePlatforms, 1);
+        setInterval(moveEnemys, 1);
         setInterval(shootBullet, 1);
         slimeJump();
 
-        document.addEventListener('keydown', playerShoot.bind(this, grid))
+        document.addEventListener('keydown', playerShoot)
         document.addEventListener('keydown', playerMovements)
         document.addEventListener('keydown', playerPauseGame)
         document.addEventListener('keydown', restart)
@@ -53,9 +56,8 @@ export function pauseGame() {
 
 // Ends game by clearing the grid and TimerIds
 
-export function endGame(grid) { 
+export function endGame() { 
     gameOver = true;
-    let htmlPlatforms = document.getElementsByClassName("platform");
     clearInterval(upTimerId);
     clearInterval(downTimerId);
     clearInterval(leftTimerId);
