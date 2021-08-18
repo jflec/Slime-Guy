@@ -68,7 +68,7 @@ export function endGame() {
     const ogScore = document.querySelector('.score');
     ogScore.innerHTML = "";
     endingOneText.innerHTML = "it wasn't enough";
-    endingTwoText.innerHTML = "push R to try again";
+    endingTwoText.innerHTML = "press R to try again";
     endingThreeText.innerHTML = `final score: ${score}`;
 }
 
