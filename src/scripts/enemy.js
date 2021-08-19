@@ -25,7 +25,7 @@ class Enemy {
 export function createEnemys() {
     const grid = document.querySelector('.grid');
     for (let i = 0; i < enemyCount; i++) {
-        let enemyGap = -600 / enemyCount;
+        let enemyGap = - 1700 / enemyCount;
         let newEnemyBottom = -120 + i * enemyGap;
         let newEnemy = new Enemy(grid, newEnemyBottom);
         enemys.push(newEnemy)
@@ -50,7 +50,7 @@ export function moveEnemys() {
 
 function updateEnemys(enemy, grid) {
     if (!gameOver) { 
-        if (enemy.bottom >= 820) {
+        if (enemy.bottom >= 1700) {
             let firstEnemy = enemys[0].visual;
             firstEnemy.remove();
             enemys.shift();

@@ -26,10 +26,6 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-header {
-  margin-bottom: 6vh;
-}
-
 footer {
   box-shadow: 20px 20px 40px 20px rgba(0, 0, 0, 0.733);
   position: fixed;
@@ -51,6 +47,7 @@ footer {
 
 .footerlist li {
   display: flex;
+  margin-left: 5px;
 }
 .github {
   width: 45px;
@@ -70,6 +67,7 @@ footer {
   position: relative;
   border-radius: 30px;
   margin: 0 auto;
+  margin-top: 7vh;
   overflow: hidden;
   font-size: 50px;
   text-align: center;
@@ -121,10 +119,10 @@ footer {
 }
 
 .menu {
-  z-index: 3;
-  margin: 0 auto;
+  z-index: 4;
   position: absolute;
-  top: 20%;
+  top: 10%;
+  left: 37%;
   width: auto;
   height: auto;
   display: none;
@@ -135,7 +133,6 @@ footer {
 }
 
 .title {
-  
   font-size: 40px;
 }
 
@@ -148,9 +145,9 @@ footer {
 }
 
 .oneEnding {
-  margin-top: 300px;
+  text-align: center;
+  margin-top: 33vh;
   font-size: 40px;
-  vertical-align: middle;
 }
 
 .twoEnding {
@@ -166,40 +163,90 @@ footer {
   font-size: 60px;
 }
 
-.slider {
+.popup {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.popuptext.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+/* .slider {
   margin-top: 30px;
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none; 
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #272727; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  width: 100%;
+  height: 25px;
+  background: #272727; 
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
   transition: opacity .2s;
 }
 
-/* Mouse-over effects */
+
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+  opacity: 1; 
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none; 
   appearance: none;
-  width: 50px; /* Set a specific slider handle width */
-  height: 50px; /* Slider handle height */
+  width: 50px; 
+  height: 50px; 
   background-image: url("../src/assets/slime_guy.png");
-  cursor: pointer; /* Cursor on hover */
+  cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 50px; /* Set a specific slider handle width */
-  height: 50px; /* Slider handle height */
-  background-image: url("../src/assets/slime_guy.png"); /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 50px; 
+  height: 50px; 
+  background-image: url("../src/assets/slime_guy.png"); 
+  cursor: pointer; 
 }
 
-
+ */
 

@@ -7,12 +7,21 @@
     <link rel="shortcut icon" href="./src/assets/favicon.png">
     <link rel="stylesheet" href="./dist/main.css">
     <script src="./dist/bundle.js"></script>
+    <script>
+        function myFunction() {
+          const popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+          console.log("After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die. ")
+        }
+    </script>
     
     <title>Slime Guy</title>
 </head>
 <body>
     <header>
-     
+            <img src="./src/assets/question_mark_white.png" alt="question_mark_white" class="popup" onclick="myFunction()">
+            <span class="popuptext" id="myPopup">After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die. </span>
+           
     </header>
     <footer>
             <ul class="footerlist">
@@ -33,20 +42,21 @@
                 <p class="oneEnding"></p>
                 <p class="twoEnding"></p>
                 <p class="finalScore"></p>
+                <div class="menu">
+                    <p>Paused</p>
+                    <!-- <ul class="menu-list">
+                        <li>
+                            <label>Music Volume</label>
+                            <input type="range" min="1" max="100" value="50" class="slider" id="music">
+                        </li>
+                        <li>
+                            <label>Game Volume</label>
+                            <input type="range" min="1" max="100" value="50" class="slider" id="game">
+                        </li>
+                    </ul> -->
+                </div>
         </div>
     </div>
-    <div class="menu">
-        <ul class="menu-list">
-            <li>
-                <label>Music Volume</label>
-                <input type="range" min="1" max="100" value="50" class="slider" id="music">
-            </li>
-            <li>
-                <label>Game Volume</label>
-                <input type="range" min="1" max="100" value="50" class="slider" id="game">
-            </li>
-        </ul>
-        
-    </div>
+    
 </body>
 </html>

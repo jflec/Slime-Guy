@@ -77,81 +77,8 @@ function updatePlatforms(platform, grid) {
         shootText.innerHTML = "";
       }
 
-      console.log(grid);
       var newPlatform = new Platform(grid, 1700);
       platforms.push(newPlatform);
-    }
-  }
-}
-;// CONCATENATED MODULE: ./src/scripts/sound.js
-var muted = true;
-var songRunning = false; // const menu = document.querySelector(".menu")
-// console.log(menu)
-// const menuList = menu.querySelector(".menu-list")
-// Importing background music
-
-var backgroundMusicOne = new Audio("../src/sounds/background_music/A Lonely Cherry Tree 🌸.mp3");
-var backgroundMusicTwo = new Audio("../src/sounds/background_music/Hello, it's Me!.mp3");
-var backgroundMusicThree = new Audio("../src/sounds/background_music/Melancholic Walk.mp3");
-var backgroundMusicFour = new Audio("../src/sounds/background_music/No Destination.mp3");
-var backgroundMusicFive = new Audio("../src/sounds/background_music/Ready Pixel One.mp3");
-var backgroundMusicSix = new Audio("../src/sounds/background_music/Run As Fast As You Can.mp3");
-var backgroundMusicSeven = new Audio("../src/sounds/background_music/The search.mp3");
-var backgroundMusicEight = new Audio("../src/sounds/background_music/Welcome Space Traveler.mp3");
-var backgroundMusic = [backgroundMusicOne, backgroundMusicTwo, backgroundMusicThree, backgroundMusicFour, backgroundMusicFive, backgroundMusicSix, backgroundMusicSeven, backgroundMusicEight]; // Importing slime sounds
-
-var slimeSoundOne = new Audio("../src/sounds/slime_sounds/slime_sound_0.mp3");
-var slimeSoundTwo = new Audio("../src/sounds/slime_sounds/slime_sound_1.mp3");
-var slimeSoundThree = new Audio("../src/sounds/slime_sounds/slime_sound_2.mp3");
-var slimeSoundFour = new Audio("../src/sounds/slime_sounds/slime_sound_3.mp3");
-var slimeSoundFive = new Audio("../src/sounds/slime_sounds/slime_sound_0.mp3");
-var slimeSoundSix = new Audio("../src/sounds/slime_sounds/slime_sound_1.mp3");
-var slimeSoundSeven = new Audio("../src/sounds/slime_sounds/slime_sound_2.mp3");
-var slimeSoundEight = new Audio("../src/sounds/slime_sounds/slime_sound_3.mp3"); // Adjusting slime sound volumes
-
-var slimeVolume = 0.05;
-slimeSoundOne.volume = slimeVolume;
-slimeSoundTwo.volume = slimeVolume;
-slimeSoundThree.volume = slimeVolume;
-slimeSoundFour.volume = slimeVolume;
-slimeSoundFive.volume = slimeVolume;
-slimeSoundSix.volume = slimeVolume;
-slimeSoundSeven.volume = slimeVolume;
-slimeSoundEight.volume = slimeVolume; // Pushing slime sounds into an array
-
-var slimeSounds = [slimeSoundOne, slimeSoundTwo, slimeSoundThree, slimeSoundFour, slimeSoundFour, slimeSoundFive, slimeSoundSix, slimeSoundSeven, slimeSoundEight]; // let backgroundMusicVolume = 1;
-// backgroundMusicOne.volume   = backgroundMusicVolume;
-// backgroundMusicTwo .volume  = backgroundMusicVolume;
-// backgroundMusicThree.volume = backgroundMusicVolume;
-// backgroundMusicFour.volume  = backgroundMusicVolume;
-// backgroundMusicFive.volume  = backgroundMusicVolume;
-// backgroundMusicSix.volume   = backgroundMusicVolume;
-// backgroundMusicSeven.volume = backgroundMusicVolume;
-// backgroundMusicEight.volume = backgroundMusicVolume;
-// Returning random slime sound when called
-
-function sample(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  var slider = document.getElementById("music");
-  slider.addEventListener('change', function () {
-    var currentSong = sample(backgroundMusic);
-    backgroundMusicPlay(currentSong);
-    currentSong.volume = this.value / 100;
-    console.log(this.value / 100);
-  });
-});
-function slimeSoundPlay() {
-  if (!muted) sample(slimeSounds).play();
-}
-function backgroundMusicPlay(currentSong) {
-  if (!songRunning) {
-    songRunning = true;
-
-    if (!muted) {
-      currentSong.play();
     }
   }
 }
@@ -216,8 +143,8 @@ function slimeFall() {
 
 function collisionDetect(platform) {
   if (slimeBottomSpace >= platform.bottom && slimeBottomSpace <= platform.bottom + 19 && slimeLeftSpace + 40 >= platform.left && slimeLeftSpace <= platform.left + 100 && !isJumping) {
-    startPoint = slimeBottomSpace;
-    slimeSoundPlay();
+    startPoint = slimeBottomSpace; // slimeSoundPlay();
+
     slimeJump();
     isJumping = true;
   }
@@ -304,7 +231,7 @@ function createEnemys() {
   var grid = document.querySelector('.grid');
 
   for (var i = 0; i < enemyCount; i++) {
-    var enemyGap = -600 / enemyCount;
+    var enemyGap = -1700 / enemyCount;
     var newEnemyBottom = -120 + i * enemyGap;
     var newEnemy = new Enemy(grid, newEnemyBottom);
     enemys.push(newEnemy);
@@ -325,7 +252,7 @@ function moveEnemys() {
 
 function updateEnemys(enemy, grid) {
   if (!game_gameOver) {
-    if (enemy.bottom >= 820) {
+    if (enemy.bottom >= 1700) {
       var firstEnemy = enemys[0].visual;
       firstEnemy.remove();
       enemys.shift();

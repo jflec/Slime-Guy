@@ -75,7 +75,6 @@ function updatePlatforms(platform, grid) {
                 movementText.innerHTML = "";
                 shootText.innerHTML = "";
             }
-            console.log(grid)
             let newPlatform = new Platform(grid, 1700)
             platforms.push(newPlatform)
 

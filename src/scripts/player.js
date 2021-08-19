@@ -69,7 +69,7 @@ function collisionDetect(platform) {
     ((slimeLeftSpace + 40) >= platform.left) && (slimeLeftSpace <= (platform.left + 100)) &&
     !isJumping) {
         startPoint = slimeBottomSpace;
-        slimeSoundPlay();
+        // slimeSoundPlay();
         slimeJump();
         isJumping = true;
     }
