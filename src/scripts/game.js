@@ -1,8 +1,3 @@
-// Add start menu
-// Add pause menu
-// Add death screen
-// BONUS: add enemy, add stages
-
 import {
   createPlayer,
   slimeJump,
@@ -22,7 +17,6 @@ export let gamePaused = false;
 export let softPaused = false;
 
 // In charge of starting the game, calls necessary functions needed for building and rendering.
-
 export function start(grid) {
   if (!gamePaused) {
     createPlatforms();
@@ -40,9 +34,7 @@ export function start(grid) {
     document.addEventListener('keyup', stopPlayerMovements);
   }
 }
-
 // Pauses game by setting exported variable to desired game state
-
 function playerPauseGame(event) {
   const menu = document.querySelector('.menu');
 
@@ -60,9 +52,7 @@ export function pauseGame() {
   gamePaused = true;
   softPaused = true;
 }
-
 // Ends game by clearing the grid and TimerIds
-
 export function endGame() {
   gameOver = true;
   clearInterval(upTimerId);
@@ -76,11 +66,9 @@ export function endGame() {
   ogScore.innerHTML = '';
   endingOneText.innerHTML = "it wasn't enough";
   endingTwoText.innerHTML = 'press R to try again';
-  endingThreeText.innerHTML = `final score: ${global.score}`;
+  endingThreeText.innerHTML = `final score: ${global.score}m`;
 }
-
 // Restarts game via reloading page
-
 function restart(event) {
   if (event.keyCode === 82) {
     location.reload();

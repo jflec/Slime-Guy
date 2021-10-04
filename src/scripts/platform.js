@@ -7,7 +7,6 @@ global.score = 1;
 export let platforms = [];
 
 // Sets Platform properties
-
 class Platform {
   constructor(grid, newPlatBottom) {
     this.bottom = newPlatBottom;
@@ -20,9 +19,7 @@ class Platform {
     grid.appendChild(visual);
   }
 }
-
 // Creates platforms and pushes to platform array
-
 export function createPlatforms() {
   const grid = document.querySelector('.grid');
   for (let i = 0; i < platformCount; i++) {
@@ -32,9 +29,7 @@ export function createPlatforms() {
     platforms.push(newPlatform);
   }
 }
-
 // Moves Platforms by substracting, or adding to the Platform's bottom property
-
 export function movePlatforms() {
   const grid = document.querySelector('.grid');
   if (!gamePaused || softPaused) {
@@ -54,9 +49,7 @@ export function movePlatforms() {
     });
   }
 }
-
 // Removes old platforms and creates new platforms that are then pushed to platform array
-
 function updatePlatforms(platform, grid) {
   if (!gameOver) {
     if (platform.bottom <= -50) {
@@ -69,7 +62,7 @@ function updatePlatforms(platform, grid) {
       platforms.shift();
       if (!softPaused) {
         global.score += 1;
-        scoreText.innerHTML = global.score;
+        scoreText.innerHTML = global.score + 'm';
         titleText.innerHTML = '';
         movementText.innerHTML = '';
         shootText.innerHTML = '';

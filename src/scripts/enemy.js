@@ -1,38 +1,36 @@
 import { gameOver, gamePaused } from './game.js';
 
-let enemyCount = 2;
+let enemyCount = 3;
+let enemyKey = 0;
 
 export let enemys = [];
 
 // Sets enemy properties
-
 class Enemy {
   constructor(grid, newEnemyBottom) {
+    this.id = enemyKey += 1;
     this.bottom = newEnemyBottom;
     this.left = Math.random() * 450;
     this.visual = document.createElement('div');
     const visual = this.visual;
     visual.classList.add('enemy');
+    visual.classList.add(this.id);
     visual.style.left = this.left + 'px';
     visual.style.bottom = this.bottom + 'px';
     grid.appendChild(visual);
   }
 }
-
 // Creates enemys and pushes to enemy array
-
 export function createEnemys() {
   const grid = document.querySelector('.grid');
   for (let i = 0; i < enemyCount; i++) {
-    let enemyGap = -1700 / enemyCount;
+    let enemyGap = -grid.clientHeight / enemyCount;
     let newEnemyBottom = -120 + i * enemyGap;
-    let newEnemy = new Enemy(grid, newEnemyBottom, i);
+    let newEnemy = new Enemy(grid, newEnemyBottom);
     enemys.push(newEnemy);
   }
 }
-
 // Moves enemys by substracting, or adding to the enemy's bottom property
-
 export function moveEnemys() {
   if (!gamePaused) {
     const grid = document.querySelector('.grid');
@@ -44,12 +42,10 @@ export function moveEnemys() {
     });
   }
 }
-
 // Removes old enemys and creates new enemys that are then pushed to enemy array
-
 function updateEnemys(enemy, grid) {
   if (!gameOver) {
-    if (enemy.bottom >= 600) {
+    if (enemy.bottom >= grid.clientHeight) {
       let firstEnemy = enemys[0].visual;
       firstEnemy.remove();
       global.score -= 20;
@@ -61,6 +57,7 @@ function updateEnemys(enemy, grid) {
 }
 
 export function killEnemy(enemy) {
-  // delete enemy;
+  let newTarget = document.getElementsByClassName(enemy.id);
+  newTarget.visual.remove();
   global.score += 1;
 }
