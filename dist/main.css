@@ -10,10 +10,10 @@
   }
 }
 
-@media (min-width: 0px) and (max-width: 660px){
-    footer { 
-        display : none; 
-        visibility : hidden; 
+@media (min-width: 0px) and (max-width: 660px) {
+  footer {
+    display: none;
+    visibility: hidden;
   }
 }
 
@@ -79,39 +79,33 @@ footer {
   z-index: 3;
   width: 50px;
   height: 50px;
-  background-image: url("../src/assets/slime_guy.png");
+  background-image: url('../src/assets/slime_guy.png');
   position: absolute;
-  box-shadow:
-  0 0 10px 1px rgb(180, 255, 173),
-  0 0 60px 2px rgb(16, 196, 0), 
-  0 0 120px 3px rgb(0, 255, 21); 
+  box-shadow: 0 0 10px 1px rgb(180, 255, 173), 0 0 60px 2px rgb(16, 196, 0),
+    0 0 120px 3px rgb(0, 255, 21);
 }
 
 .enemy {
   width: 40px;
   height: 40px;
-  background-image: url("../src/assets/demon.png");
+  background-image: url('../src/assets/demon.png');
   position: absolute;
-  box-shadow:
-  0 0 10px 1px rgb(255, 0, 0);
+  box-shadow: 0 0 10px 1px rgb(255, 0, 0);
 }
 
 .platform {
   width: 116px;
   height: 16px;
-  background-image: url("../src/assets/platform.gif");
+  background-image: url('../src/assets/platform.gif');
   position: absolute;
-  box-shadow:
-  0 0 10px 1px rgb(255, 0, 0);
+  box-shadow: 0 0 10px 1px rgb(255, 0, 0);
 }
 
 .bullet {
   z-index: 2;
-  animation: rotation .01s infinite linear;
-  box-shadow:
-  0 0 10px 1px #fff,
-  0 0 20px 2px rgb(118, 255, 105), 
-  0 0 30px 3px rgb(0, 173, 14);
+  animation: rotation 0.01s infinite linear;
+  box-shadow: 0 0 10px 1px #fff, 0 0 20px 2px rgb(118, 255, 105),
+    0 0 30px 3px rgb(0, 173, 14);
   width: 16px;
   height: 16px;
   background-color: white;
@@ -187,7 +181,7 @@ footer {
 }
 
 .popuptext::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 100%;
   left: 50%;
@@ -200,17 +194,25 @@ footer {
 .popuptext.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
+  animation: fadeIn 1s;
 }
 
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* .slider {
@@ -249,4 +251,3 @@ footer {
 }
 
  */
-
