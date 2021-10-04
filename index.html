@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,700|Prata" rel="stylesheet">
     <link rel="shortcut icon" href="./src/assets/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
     <link rel="stylesheet" href="./dist/main.css">
     <script src="./dist/bundle.js"></script>
     <script>
         function myFunction() {
-          const popup = document.getElementById("myPopup");
-          popup.classList.toggle("show");
-          console.log("After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die. ")
+            const popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+            console.log(
+                "After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die. "
+            )
         }
     </script>
-    
+
     <title>Slime Guy</title>
 </head>
+
 <body>
     <header>
-            <img src="./src/assets/question_mark_white.png" alt="question_mark_white" class="popup" onclick="myFunction()">
-            <span class="popuptext" id="myPopup">After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die. </span>
-           
+        <img src="./src/assets/question_mark_white.png" alt="question_mark_white" class="popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup">After committing countless horrendous crimes against humanity, Slime Guy
+            was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives
+            and redeems himself, otherwise Slime Guy more like Slime Die. </span>
+
     </header>
     <footer>
-            <ul class="footerlist">
-                <li>
-                    <p>Created by Joseph Felicidario</p>
-                </li>
-                <li>
-                    <a href="https://github.com/JFlec/Slime-Guy"> <img class = "github" src="./src/assets/GitHub-Mark.png" alt="GitHub Icon"></a>
-                </li>
-            </ul>
+        <ul class="footerlist">
+            <li>
+                <p>Created by Joseph Felicidario</p>
+            </li>
+            <li>
+                <a href="https://github.com/JFlec/Slime-Guy"> <img class="github" src="./src/assets/GitHub-Mark.png"
+                        alt="GitHub Icon"></a>
+            </li>
+        </ul>
     </footer>
-   <div class="container">
+    <div class="container">
         <div class="grid">
-                <p class="score">Slime Guy</p>
-                <p class="title">press space to start or pause</p>
-                <p class="movement">A, D or ← → to move</p>
-                <p class="shoot">enter to shoot</p>
-                <p class="oneEnding"></p>
-                <p class="twoEnding"></p>
-                <p class="finalScore"></p>
-                <div class="menu">
-                    <p>Paused</p>
-                    <!-- <ul class="menu-list">
+            <p class="score">Slime Guy</p>
+            <p class="title">press space to start or pause</p>
+            <p class="movement">A, D or ← → to move</p>
+            <p class="shoot">enter to shoot</p>
+            <p class="oneEnding"></p>
+            <p class="twoEnding"></p>
+            <p class="finalScore"></p>
+            <div class="menu">
+                <p>Paused</p>
+                <!-- <ul class="menu-list">
                         <li>
                             <label>Music Volume</label>
                             <input type="range" min="1" max="100" value="50" class="slider" id="music">
@@ -54,9 +62,10 @@
                             <input type="range" min="1" max="100" value="50" class="slider" id="game">
                         </li>
                     </ul> -->
-                </div>
+            </div>
         </div>
     </div>
-    
+
 </body>
+
 </html>
