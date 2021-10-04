@@ -26,7 +26,7 @@ export function createEnemys() {
   for (let i = 0; i < enemyCount; i++) {
     let enemyGap = -1700 / enemyCount;
     let newEnemyBottom = -120 + i * enemyGap;
-    let newEnemy = new Enemy(grid, newEnemyBottom);
+    let newEnemy = new Enemy(grid, newEnemyBottom, i);
     enemys.push(newEnemy);
   }
 }
@@ -52,6 +52,7 @@ function updateEnemys(enemy, grid) {
     if (enemy.bottom >= 1700) {
       let firstEnemy = enemys[0].visual;
       firstEnemy.remove();
+      global.score -= 20;
       enemys.shift();
       let newEnemy = new Enemy(grid, -50);
       enemys.push(newEnemy);
@@ -60,5 +61,6 @@ function updateEnemys(enemy, grid) {
 }
 
 export function killEnemy(enemy) {
-  enemy.left = 200;
+  enemy.visual.remove();
+  global.score += 1;
 }
