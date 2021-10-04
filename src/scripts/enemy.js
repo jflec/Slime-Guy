@@ -49,7 +49,7 @@ export function moveEnemys() {
 
 function updateEnemys(enemy, grid) {
   if (!gameOver) {
-    if (enemy.bottom >= 1700) {
+    if (enemy.bottom >= 600) {
       let firstEnemy = enemys[0].visual;
       firstEnemy.remove();
       global.score -= 20;
@@ -61,6 +61,6 @@ function updateEnemys(enemy, grid) {
 }
 
 export function killEnemy(enemy) {
-  enemy.visual.remove();
+  // delete enemy;
   global.score += 1;
 }

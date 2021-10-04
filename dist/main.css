@@ -17,38 +17,37 @@
   }
 }
 
-html {
-  font-size: 100%;
-}
-
 body {
   background-color: rgb(14, 14, 14);
-  font-family: 'Lato', sans-serif;
 }
 
 footer {
-  box-shadow: 20px 20px 40px 20px rgba(0, 0, 0, 0.733);
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  background-color: white;
-  color: #000000;
+  color: #ffffff;
 }
 
 .footerlist {
   justify-content: center;
-  flex-direction: row;
   display: flex;
   list-style: none;
   margin: 0 auto;
   text-align: center;
+  gap: 40px;
 }
 
-.footerlist li {
-  display: flex;
-  margin-left: 5px;
+footer a i {
+  padding: 20px;
+  font-size: 40px;
+  transition: 0.2s;
+  text-decoration: none;
+  color: rgb(85, 85, 85);
 }
+
+footer a i:hover {
+  transition: 0.2s;
+  color: white;
+}
+
 .github {
   width: 45px;
   height: 45px;
@@ -59,20 +58,37 @@ footer {
 }
 
 .grid {
-  z-index: 1;
+  font-family: monospace;
+  font-weight: 400;
   width: 600px;
   height: 100%;
-  box-shadow: 8px 8px 10px rgb(0, 0, 0);
-  background-color: rgb(5, 0, 0);
+  background-color: rgb(7, 0, 0);
   position: relative;
-  border-radius: 30px;
   margin: 0 auto;
   margin-top: 7vh;
   overflow: hidden;
-  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid white;
+  --angle: 0deg;
+  border-image: linear-gradient(
+      var(--angle),
+      rgb(255, 0, 0),
+      rgb(5, 0, 0),
+      rgb(14, 14, 14)
+    )
+    1;
+}
+
+.menu-container {
+  margin-top: 5vh;
   text-align: center;
   color: white;
-  line-height: 30px;
+  font-size: 3vh;
+}
+
+.score {
+  font-size: 5vh;
 }
 
 .slime {
@@ -103,90 +119,61 @@ footer {
 
 .bullet {
   z-index: 2;
-  animation: rotation 0.01s infinite linear;
-  box-shadow: 0 0 10px 1px #fff, 0 0 20px 2px rgb(118, 255, 105),
-    0 0 30px 3px rgb(0, 173, 14);
+  box-shadow: 0 0 10px 1px rgb(255, 255, 255), 0 0 20px 2px rgb(118, 255, 105),
+    0 0 30px 3px rgb(0, 255, 21);
   width: 16px;
   height: 16px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
   position: absolute;
 }
 
 .menu {
-  z-index: 4;
   position: absolute;
-  top: 10%;
-  left: 37%;
-  width: auto;
-  height: auto;
+  top: 14%;
   display: none;
+  color: white;
+  font-size: 4vh;
 }
 
 .menu-list {
   list-style: none;
 }
 
-.title {
-  font-size: 40px;
-}
-
-.shoot {
-  font-size: 40px;
-}
-
-.movement {
-  font-size: 40px;
-}
-
-.oneEnding {
-  text-align: center;
-  margin-top: 33vh;
-  font-size: 40px;
-}
-
-.twoEnding {
-  font-size: 40px;
-  vertical-align: middle;
-}
-
-.finalScore {
-  font-size: 40px;
-}
-
-.score {
-  font-size: 60px;
-}
-
 .popup {
-  width: 40px;
-  height: 40px;
+  width: 22.5px;
+  height: 30px;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 14px;
+  right: 14px;
   cursor: pointer;
   transition: 0.2s;
-  filter: opacity(40%);
+  color: rgb(85, 85, 85);
+  font-size: 30px;
 }
 
 .popup:hover {
   transition: 0.2s;
-  filter: opacity(100%);
-  transform: scale(1.1);
+  color: white;
 }
 
 .popuptext {
+  font-family: monospace;
+  font-weight: 400;
   visibility: hidden;
-  width: 300px;
-  background-color: rgb(5, 0, 0);
+  width: 30vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: brightness(0.9) blur(2px);
+  font-family: monospace;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 24px;
+  padding: 30px;
+  font-size: 18px;
   position: absolute;
   right: 5px;
-  z-index: 2;
-  top: 55px;
-  box-shadow: 8px 8px 10px rgb(0, 0, 0);
+  z-index: 1;
+  top: 56px;
 }
 
 .popuptext::after {
@@ -197,8 +184,7 @@ footer {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent rgb(0, 0, 0) transparent;
-  box-shadow: 8px 8px 10px rgb(22, 22, 22);
+  border-color: transparent transparent rgba(0, 0, 0, 0.4) transparent;
 }
 
 .show {
@@ -232,40 +218,3 @@ slime {
 hell {
   color: rgb(255, 0, 0);
 }
-
-/* .slider {
-  margin-top: 30px;
-  -webkit-appearance: none; 
-  appearance: none;
-  width: 100%;
-  height: 25px;
-  background: #272727; 
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-
-.slider:hover {
-  opacity: 1; 
-}
-
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; 
-  appearance: none;
-  width: 50px; 
-  height: 50px; 
-  background-image: url("../src/assets/slime_guy.png");
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 50px; 
-  height: 50px; 
-  background-image: url("../src/assets/slime_guy.png"); 
-  cursor: pointer; 
-}
-
- */

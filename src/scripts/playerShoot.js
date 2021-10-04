@@ -10,7 +10,7 @@ class Bullet {
     this.visual = document.createElement('div');
     const visual = this.visual;
     visual.classList.add('bullet');
-    visual.style.left = slimeLeftSpace + 12 + 'px';
+    visual.style.left = slimeLeftSpace + 18 + 'px';
     visual.style.bottom = slimeBottomSpace + 12 + 'px';
     document.querySelector('.grid').appendChild(visual);
   }
@@ -49,7 +49,7 @@ function collisionDetect(enemy, bottom, left) {
     bottom >= enemy.bottom &&
     bottom <= enemy.bottom + 19 &&
     left + 40 >= enemy.left &&
-    left <= enemy.left + 100
+    left <= enemy.left + 30
   ) {
     killEnemy(enemy);
   }

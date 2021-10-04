@@ -4,18 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,700|Prata" rel="stylesheet">
-    <link rel="shortcut icon" href="./src/assets/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./dist/main.css">
+    <link rel="stylesheet" href="./dist/reset.css">
+    <link rel="shortcut icon" href="./src/assets/favicon.png">
     <script src="./dist/bundle.js"></script>
+    <script src="https://kit.fontawesome.com/9b658e157a.js" crossorigin="anonymous"></script>
     <script>
         function myFunction() {
             const popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
-            console.log(
-                "After committing countless horrendous crimes against humanity, Slime Guy was banished to the deepest darkest depths of Hell. It is up to the player to decide if Slime Guy survives and redeems himself, otherwise Slime Guy more like Slime Die. "
-            )
         }
     </script>
 
@@ -24,7 +22,7 @@
 
 <body>
     <header>
-        <img src="./src/assets/question_mark_white.png" alt="question_mark_white" class="popup" onclick="myFunction()">
+        <i class="fas fa-question popup" onclick="myFunction()"></i>
         <span class="popuptext" id="myPopup">After committing countless horrendous crimes against humanity, <slime>Slime
                 Guy</slime>
             was banished to the deepest darkest depths of <hell>Hell</hell>. It is up to the player to decide if <slime>
@@ -35,41 +33,49 @@
         </span>
 
     </header>
-    <footer>
-        <ul class="footerlist">
-            <li>
-                <p>Created by Joseph Felicidario</p>
-            </li>
-            <li>
-                <a href="https://github.com/JFlec/Slime-Guy"> <img class="github" src="./src/assets/GitHub-Mark.png"
-                        alt="GitHub Icon"></a>
-            </li>
-        </ul>
-    </footer>
+
     <div class="container">
         <div class="grid">
-            <p class="score">Slime Guy</p>
-            <p class="title">press space to start or pause</p>
-            <p class="movement">A, D or ← → to move</p>
-            <p class="shoot">enter to shoot</p>
-            <p class="oneEnding"></p>
-            <p class="twoEnding"></p>
-            <p class="finalScore"></p>
+            <div class="menu-container">
+                <p class="score">
+                    <slime>Slime Guy</slime>
+                </p>
+                <p class="title">press space to start or pause</p>
+                <p class="movement">A, D or ← → to move</p>
+                <p class="shoot">enter to shoot</p>
+                <p class="oneEnding"></p>
+                <p class="twoEnding"></p>
+                <p class="finalScore"></p>
+            </div>
             <div class="menu">
-                <p>Paused</p>
-                <!-- <ul class="menu-list">
-                        <li>
-                            <label>Music Volume</label>
-                            <input type="range" min="1" max="100" value="50" class="slider" id="music">
-                        </li>
-                        <li>
-                            <label>Game Volume</label>
-                            <input type="range" min="1" max="100" value="50" class="slider" id="game">
-                        </li>
-                    </ul> -->
+                <i class="fas fa-pause"></i>
             </div>
         </div>
     </div>
+
+    <footer>
+        <ul class="footerlist">
+            <li>
+                <a href="https://github.com/JFlec"> <i class="fab fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/joe-felicidario-3755151b7/">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://angel.co/u/joseph-felicidario">
+                    <i class="fab fa-angellist"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://jflec.github.io/portfolio/">
+                    <i class="far fa-user"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
 
 </body>
 
