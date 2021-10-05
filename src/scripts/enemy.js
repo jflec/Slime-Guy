@@ -8,13 +8,12 @@ export let enemys = [];
 // Sets enemy properties
 class Enemy {
   constructor(grid, newEnemyBottom) {
-    this.id = enemyKey += 1;
+    this.killed = false;
     this.bottom = newEnemyBottom;
     this.left = Math.random() * 450;
     this.visual = document.createElement('div');
     const visual = this.visual;
     visual.classList.add('enemy');
-    visual.classList.add(this.id);
     visual.style.left = this.left + 'px';
     visual.style.bottom = this.bottom + 'px';
     grid.appendChild(visual);
@@ -47,8 +46,8 @@ function updateEnemys(enemy, grid) {
   if (!gameOver) {
     if (enemy.bottom >= grid.clientHeight) {
       let firstEnemy = enemys[0].visual;
+      if (!enemy.killed) global.score -= 20;
       firstEnemy.remove();
-      global.score -= 20;
       enemys.shift();
       let newEnemy = new Enemy(grid, -50);
       enemys.push(newEnemy);
@@ -57,7 +56,7 @@ function updateEnemys(enemy, grid) {
 }
 
 export function killEnemy(enemy) {
-  let newTarget = document.getElementsByClassName(enemy.id);
-  newTarget.visual.remove();
-  global.score += 1;
+  global.score += 10;
+  enemy.killed = true;
+  enemy.visual.remove();
 }

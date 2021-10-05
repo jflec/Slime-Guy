@@ -51,6 +51,6 @@ function collisionDetect(enemy, bottom, left) {
     left + 40 >= enemy.left &&
     left <= enemy.left + 30
   ) {
-    killEnemy(enemy);
+    if (!enemy.killed) killEnemy(enemy);
   }
 }
