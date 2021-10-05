@@ -68,13 +68,7 @@ footer a i:hover {
   justify-content: center;
   border: 2px solid white;
   --angle: 0deg;
-  border-image: linear-gradient(
-      var(--angle),
-      rgb(255, 0, 0),
-      rgb(5, 0, 0),
-      rgb(14, 14, 14)
-    )
-    1;
+  border-image: linear-gradient(var(--angle), rgb(255, 0, 0), rgb(26, 26, 26)) 1;
 }
 
 .menu-container {
