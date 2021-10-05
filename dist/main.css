@@ -55,6 +55,7 @@ footer a i:hover {
 }
 
 .grid {
+  transition: 0.2s;
   font-family: monospace;
   font-weight: 400;
   width: 600px;
@@ -66,16 +67,16 @@ footer a i:hover {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  border: 2px solid white;
-  --angle: 0deg;
-  border-image: linear-gradient(var(--angle), rgb(255, 0, 0), rgb(26, 26, 26)) 1;
+  border: 2px solid red;
+  border-image: linear-gradient(0deg, rgb(255, 0, 0), rgb(26, 26, 26)) 1;
 }
 
 .menu-container {
-  margin-top: 5vh;
+  margin-top: 8vh;
   text-align: center;
   color: white;
   font-size: 3vh;
+  line-height: 50px;
 }
 
 .score {
@@ -121,9 +122,10 @@ footer a i:hover {
 
 .menu {
   position: absolute;
-  top: 14%;
+  top: 50%;
+  margin-top: -2vh;
   display: none;
-  color: white;
+  color: rgb(129, 0, 0);
   font-size: 4vh;
 }
 
@@ -207,5 +209,5 @@ slime {
 }
 
 hell {
-  color: rgb(255, 0, 0);
+  color: red;
 }

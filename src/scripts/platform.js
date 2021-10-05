@@ -62,7 +62,7 @@ function updatePlatforms(platform, grid) {
       platforms.shift();
       if (!softPaused) {
         global.score += 1;
-        scoreText.innerHTML = global.score + 'm';
+        scoreText.innerHTML = global.score;
         titleText.innerHTML = '';
         movementText.innerHTML = '';
         shootText.innerHTML = '';

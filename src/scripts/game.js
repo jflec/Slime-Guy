@@ -66,7 +66,7 @@ export function endGame() {
   ogScore.innerHTML = '';
   endingOneText.innerHTML = "it wasn't enough";
   endingTwoText.innerHTML = 'press R to try again';
-  endingThreeText.innerHTML = `final score: ${global.score}m`;
+  endingThreeText.innerHTML = `final score: ${global.score}`;
 }
 // Restarts game via reloading page
 function restart(event) {
