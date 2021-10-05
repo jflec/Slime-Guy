@@ -9,7 +9,7 @@ Slime Guy throws the user straight into slime action. After committing countless
 Users will be able to:
   * Ascend to randomly placed platforms using their arrow keys and or WASD.
   * Pause and play.
-  * Toggle music on and off.
+  * Shoot enemies for extra points.
 
 This project will also include:
   * An About modal describing the background and rules of the game
