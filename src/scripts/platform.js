@@ -1,7 +1,7 @@
 import { gameOver, gamePaused, softPaused } from './game.js';
 import { isJumping, isFalling } from './player.js';
 
-let platformCount = 10;
+let platformCount = 22;
 
 global.score = 1;
 export let platforms = [];
@@ -23,7 +23,7 @@ class Platform {
 export function createPlatforms() {
   const grid = document.querySelector('.grid');
   for (let i = 0; i < platformCount; i++) {
-    let platformGap = 1700 / platformCount;
+    let platformGap = 3900 / platformCount;
     let newPlatBottom = 100 + i * platformGap;
     let newPlatform = new Platform(grid, newPlatBottom);
     platforms.push(newPlatform);
@@ -67,7 +67,7 @@ function updatePlatforms(platform, grid) {
         movementText.innerHTML = '';
         shootText.innerHTML = '';
       }
-      let newPlatform = new Platform(grid, 1700);
+      let newPlatform = new Platform(grid, 3900);
       platforms.push(newPlatform);
     }
   }

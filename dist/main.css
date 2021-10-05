@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: rgb(14, 14, 14);
+  background-color: rgb(26, 26, 26);
 }
 
 footer {
@@ -157,31 +157,31 @@ footer a i:hover {
 .popuptext {
   font-family: monospace;
   font-weight: 400;
+
   visibility: hidden;
   width: 30vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(7, 0, 0);
   backdrop-filter: brightness(0.9) blur(2px);
   font-family: monospace;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
   padding: 30px;
   font-size: 18px;
   position: absolute;
   right: 5px;
   z-index: 1;
-  top: 56px;
+  top: 64px;
 }
 
 .popuptext::after {
   content: '';
   position: absolute;
   bottom: 100%;
-  right: 15px;
+  right: 10px;
   margin-left: -5px;
-  border-width: 5px;
+  border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent rgba(0, 0, 0, 0.4) transparent;
+  border-color: transparent transparent rgb(7, 0, 0) transparent;
 }
 
 .show {
