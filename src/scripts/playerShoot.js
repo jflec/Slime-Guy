@@ -36,7 +36,10 @@ export function shootBullet(x, y) {
     enemys.forEach((enemy) => {
       collisionDetect(enemy, bullet.bottom, bullet.left);
     });
-    if (bullet.bottom <= -50) {
+    if (bullet.bottom <= -10) {
+      visual.style.boxShadow = '0px 0px 150px 60px rgb(0, 94, 0)';
+    }
+    if (bullet.bottom <= -60) {
       let firstBullet = bullets[0].visual;
       firstBullet.remove();
       bullets.shift();

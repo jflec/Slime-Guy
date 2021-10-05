@@ -66,6 +66,7 @@ function collisionDetect(platform) {
     slimeLeftSpace <= platform.left + 100 &&
     !isJumping
   ) {
+    platform.visual.classList.add('turned');
     startPoint = slimeBottomSpace;
     slimeJump();
     isJumping = true;

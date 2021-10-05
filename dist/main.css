@@ -89,7 +89,7 @@ footer a i:hover {
   height: 50px;
   background-image: url('../src/assets/slime_guy.png');
   position: absolute;
-  box-shadow: 0 0 10px 1px rgb(180, 255, 173), 0 0 60px 2px rgb(16, 196, 0),
+  box-shadow: 0 0 10px 1px rgb(7, 83, 0), 0 0 60px 2px rgb(16, 196, 0),
     0 0 120px 3px rgb(0, 255, 21);
 }
 
@@ -153,7 +153,6 @@ footer a i:hover {
 .popuptext {
   font-family: monospace;
   font-weight: 400;
-
   visibility: hidden;
   width: 30vh;
   background-color: rgba(7, 0, 0);
@@ -210,4 +209,10 @@ slime {
 
 hell {
   color: red;
+}
+
+.turned {
+  filter: hue-rotate(150deg) brightness(3);
+  box-shadow: 0 0 10px 1px rgb(255, 0, 0), 0 0 60px 2px rgb(196, 0, 0),
+    0 0 120px 3px rgb(255, 0, 0);
 }
