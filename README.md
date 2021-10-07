@@ -23,7 +23,7 @@ This project will also include:
 
 # Wireframe 
 
-![wireframe](./src/assets/wireframe.png)
+![wireframe](./src/assets/original_wireframe.png)
 
 # Evolution of Slime Guy
 
