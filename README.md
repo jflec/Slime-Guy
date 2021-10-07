@@ -53,7 +53,7 @@ Slime Guy throws the user straight into slime action. After committing countless
 }
  ```
  
- This snippet is in charge of adding new enemies to the screen, and creating a cool visual effect when an enemy escapes. Because all of my assets are divs I was able to add CSS styling like box shadows. It's a subtle addition to the project, however, I think it adds an interesting dyanmic to the whole user experience. 
+ This snippet is in charge of adding new enemies to the screen, and creating a cool visual effect when an enemy escapes. Because all of my assets are divs I was able to add CSS styling to specific elements. It's a subtle addition to the project, however, I think it adds an interesting dyanmic to the whole user experience. 
 
 # Wireframe 
 
