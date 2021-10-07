@@ -16,8 +16,6 @@ Slime Guy throws the user straight into slime action. After committing countless
 
   From the beginning of the project I wanted to be able to style every asset in my game using CSS, with that in mind everything you see on the screen is a div. The above GIF shows what's going on behind the scenes and allows you to see the game update live.
 
-# Code Snippet
-
  ```javascript
  function updateEnemys(enemy, grid) {
   if (!gameOver) {
