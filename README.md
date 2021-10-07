@@ -1,4 +1,4 @@
-# Slime Guy
+# [Live Site](https://jflec.github.io/Slime-Guy/)
 
 # Background
 
