@@ -27,7 +27,7 @@ This project will also include:
 
 # Evolution of Slime Guy
 
-![evolution](./src/assets/evolution.png)
+![evolution](./src/assets/evo.png)
 
 # Gameplay
 
