@@ -1,4 +1,4 @@
-# [Live Site](https://jflec.github.io/Slime-Guy/)
+# [Slime Guy](https://jflec.github.io/Slime-Guy/)
 
 # Background
 
