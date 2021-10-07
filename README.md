@@ -25,6 +25,16 @@ This project will also include:
 
 ![wireframe](./src/assets/wireframe.png)
 
+# Evolution of Slime Guy
+
+![evolution](./src/assets/evolution.png)
+
+# Gameplay
+
+![gameplay](./src/assets/gameplay.gif)
+
+
+
 # Implementation Timeline
 
 * 8/15/21 - Finish working on assets, and game concept art.
