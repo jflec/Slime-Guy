@@ -34,7 +34,7 @@ Users will be able to:
 This project will also include:
   * An About modal describing the background and rules of the game
   * A production README
-  * 
+  
 # Implementation Timeline
 
 * 8/15/21 - Finish working on assets, and game concept art.
