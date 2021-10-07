@@ -12,6 +12,10 @@ Slime Guy throws the user straight into slime action. After committing countless
   * HTML
   * CSS
 
+  ![html_data](./src/assets/html_data.gif)
+
+  From the beginning of the project I wanted to be able to style every asset in my game using CSS, with that in mind everything you see on the screen is a div, lol. The above GIF shows what's going on behind the scenes and allows you to see the game update live.
+
 # Wireframe 
 
 ![wireframe](./src/assets/wireframe.png)

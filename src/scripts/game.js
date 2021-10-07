@@ -37,7 +37,6 @@ export function start(grid) {
 // Pauses game by setting exported variable to desired game state
 function playerPauseGame(event) {
   const menu = document.querySelector('.menu');
-
   if (event.keyCode === 32 && !gamePaused) {
     gamePaused = true;
     menu.style.display = 'block';
