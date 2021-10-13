@@ -34,7 +34,7 @@ Slime Guy throws the user straight into slime action. After committing countless
         grid.style.border = '4px solid red';
       }
     }
-    if (enemy.bottom >= grid.clientHeight + 20) {
+    if (enemy.bottom >= grid.clientHeight + 19) {
       let firstEnemy = enemys[0].visual;
       if (!enemy.killed) {
         grid.style.transform = 'scale(1.0)';
