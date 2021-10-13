@@ -16,9 +16,7 @@ Slime Guy throws the user straight into slime action. After committing countless
 
   From the beginning of the project I wanted to be able to style every asset in my game using CSS, with that in mind everything you see on the screen is a div. The above GIF shows what's going on behind the scenes and allows you to see the game update live.
 
-# Code Snippet
-
- ```
+ ```javascript
  function updateEnemys(enemy, grid) {
   if (!gameOver) {
     let scoreStyle = document.querySelector('.score');
@@ -34,7 +32,7 @@ Slime Guy throws the user straight into slime action. After committing countless
         grid.style.border = '4px solid red';
       }
     }
-    if (enemy.bottom >= grid.clientHeight + 19) {
+    if (enemy.bottom >= grid.clientHeight + 20) {
       let firstEnemy = enemys[0].visual;
       if (!enemy.killed) {
         grid.style.transform = 'scale(1.0)';
@@ -54,6 +52,8 @@ Slime Guy throws the user straight into slime action. After committing countless
   }
 }
  ```
+ 
+ This snippet is in charge of adding new enemies to the screen, and creating a cool visual effect when an enemy escapes. Because all of my assets are divs I was able to add CSS styling to specific elements. It's a subtle addition to the project, however, I think it adds an interesting dyanmic to the whole user experience. 
 
 # Wireframe 
 
